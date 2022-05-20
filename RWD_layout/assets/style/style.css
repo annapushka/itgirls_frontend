@@ -1,0 +1,76 @@
+.container {
+    font-size: 2vw;
+    display: grid;
+    width: 100%;
+    height: 900px;
+    grid-template-areas: "header header header"
+        "main main sidebar"
+        "main main sidebar"
+        "footer footer footer";
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-rows: 10% 1fr 1fr 15%;
+    gap: 5px;
+}
+
+.header {
+    grid-area: header;
+    background-color: aqua;
+}
+
+.main {
+    grid-area: main;
+    background-color: rgb(239, 240, 206);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    grid-template-rows: 10% 1fr 1fr;
+    grid-template-areas: ". ."
+        "content-1 content-1"
+        "content-2 content-3";
+    gap: 5px;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: rgb(162, 145, 232);
+}
+
+.content-1 {
+    grid-area: content-1;
+    background-color: rgb(234, 236, 161);
+}
+
+.content-2 {
+    grid-area: content-2;
+    background-color: rgb(234, 236, 161);
+}
+
+.content-3 {
+    grid-area: content-3;
+    background-color: rgb(234, 236, 161);
+    display: flex;
+    justify-content: center;
+}
+
+.img-cont {
+    width: 80%;
+}
+
+img {
+    width: 100%;
+    max-width: 100%;
+}
+
+.footer {
+    background-color: white;
+    grid-area: footer;
+    display: grid;
+    grid-template-areas:
+        "section section section section";
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    grid-template-rows: 1fr;
+    gap: 5px;
+}
+
+.footer-section {
+    background-color: rgba(115, 98, 116, 0.411);
+}
