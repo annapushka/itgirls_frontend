@@ -1,0 +1,38 @@
+header {
+    height: 5vh;
+}
+
+footer {
+    height: 8vh;
+}
+
+.container-fluid_black {
+    background-color: rgba(39, 40, 43, 0.921);
+    color: aliceblue;
+}
+
+.welcome-page {
+    background-color: rgba(172, 176, 198, 0.401);
+    padding: 8vh;
+}
+
+.welcome-page-wrap,
+.cards-wrap {
+    padding: 1vh;
+}
+
+.card-text_border {
+    border-bottom: 1px solid rgb(233, 231, 231);
+}
+
+.title {
+    font-size: 5em;
+    line-height: 200%;
+}
+
+.btn_wrap {
+    background-color: rgba(169, 169, 163, 0.209);
+    padding: 2rem 0;
+    display: flex;
+    justify-content: center;
+}
