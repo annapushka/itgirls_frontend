@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>BEM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&family=Ubuntu:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/style/normalize.css">
+    <link rel="stylesheet" href="assets/style/style.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__logo logo">
+            <img class="logo__img" src="assets/images/logo__img.png" alt="image logo">
+        </div>
+        <button class="header__ botton">Корзина
+            <img class="botton__img" src="assets/images/botton__img.png" alt="image botton">
+        </button>
+    </header>
+    <main>
+        <section class="hello-page row">
+            <div class="col flex-row">
+                <h1 class="hello-page__titile titile">Виртуальная реальность без проводов</h1>
+                <p class="hello-page__text text">Лучшее, что случалось с виртуальным миром в реальности. Новый
+                    компактный
+                    шлем без проводов и дорогих комьютеров.</p>
+                <button class="hello-page__botton botton">купить
+                    <img class="botton__img" src="assets/images/botton__img_2.png" alt="image botton">
+                </button>
+
+            </div>
+            <div class="hello-page__img col">
+                <img src="assets/images/hello-page__img.png" alt="image hello page">
+            </div>
+        </section>
+
+        <section class="page">
+            <h1 class="page__titile titile" id="posibility">Возможности</h1>
+            <div class="item-conteiner row">
+                <div class="item col">
+                    <img class="item__img" src="assets/images/item__img_1.png" alt="image item">
+                    <h2 class="item__titile titile">Без проводов</h2>
+                    <p class="item__text text">Шлем работает без проводов. Не нужен ни компьютер, ни внешнее питание, ни
+                        большое помещение, чтобы расставить трекеры.</p>
+                </div>
+                <div class="item col">
+                    <img class="item__img" src="assets/images/item__img_2.png" alt="image item">
+                    <h2 class="item__titile titile">Без компьютера</h2>
+                    <p class="item__text text">Современным VR-шлемам нужен мощный компьютер, чтобы запускать игры. Наш
+                        шлем
+                        запускает игры из облака, поэтому просто наслаждайтесь.</p>
+                </div>
+                <div class="item col">
+                    <img class="item__img" src="assets/images/item__img_3.png" alt="image item">
+                    <h2 class="item__titile titile">До 10 часов работы</h2>
+                    <p class="item__text text">Несмотря на компактность и производительность, шлем может работать до 10
+                        часов — даже, если вы играете в самые ресурсоемкие игры.</p>
+                </div>
+            </div>
+            <div class="item-conteiner row">
+                <div class="item col">
+                    <h2 class="item__titile titile">Сотни игр</h2>
+                    <p class="item__text text">Уже сейчас вам доступно более сотни игр: от высокобюджетных ААА-тайтлов
+                        до
+                        маленьких независимых проектов. Скоро их станет еще больше.</p>
+                </div>
+                <div class="item col">
+                    <h2 class="item__titile titile">Почти даром</h2>
+                    <p class="item__text text">По сравнению с другими VR-шлемами наш стоит гораздо меньше. И вы
+                        существенно
+                        экономите на мощном компьютере.</p>
+                </div>
+                <div class="item item_orange col">
+                    <h2 class="item__titile titile">Новости</h2>
+                    <form>
+                        <input class="contact text" placeholder="Эл. почта" name="e-mail">
+                    </form>
+                    <button class="contact__botton botton">Подписаться</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <nav class="hello-page__nav">
+        <ul class="links-list d-flex justify-content-start">
+            <li class="links-list__link"><a href="#posibility">Возможности</a></li>
+            <li class="links-list__link"><a href="#">Где купить</a></li>
+            <li class="links-list__link"><a href="#">Доставка</a></li>
+            <li class="links-list__link"><a href="#">Помощь</a></li>
+        </ul>
+    </nav>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
