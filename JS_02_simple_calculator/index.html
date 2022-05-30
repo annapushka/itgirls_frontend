@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hi</title>
+    <style>
+        button {
+            width: 160px;
+            height: 50px;
+            font-size: 20px;
+            background-color: black;
+            color: azure;
+            border: none;
+            border-radius: 50%;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            gap: 1em;
+
+        }
+
+        .container div {
+            display: flex;
+            align-items: center;
+            border: 1px solid rgba(0, 0, 0, 0.099);
+            border-radius: 50%;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <h1>(^˵◕ω◕˵^)</h1>
+            <button onclick="sum()">sum</button>
+        </div>
+        <div>
+            <h1>(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧</h1>
+            <button onclick="subtract()">subtract</button>
+        </div>
+        <div>
+            <h1>(๑˘︶˘๑)</h1>
+            <button onclick="multiply()">multiply</button>
+        </div>
+        <div>
+            <h1>ʕ ᵔᴥᵔ ʔ</h1>
+            <button onclick="divide()">divide</button>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
