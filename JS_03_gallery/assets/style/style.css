@@ -1,0 +1,55 @@
+body {
+    padding: 10%;
+}
+
+.carousel {
+    position: relative;
+    width: fit-content;
+    padding: 10px 40px;
+    border: 1px solid #CCC;
+    border-radius: 30px;
+    background: rgb(230, 245, 252);
+}
+
+.gallery__item img {
+    max-height: 300px;
+    max-width: 100%;
+}
+
+.arrow {
+    position: absolute;
+    top: 45%;
+    padding: 0;
+    background: rgba(221, 221, 221, 0.199);
+    border-radius: 15px;
+    border: 1px solid rgba(87, 64, 150, 0.116);
+    font-size: 4em;
+    line-height: 1.3em;
+    color: rgba(105, 124, 231, 0.308);
+}
+
+.arrow:hover {
+    background: rgba(92, 105, 244, 0.493);
+}
+
+.prev {
+    left: 1%;
+}
+
+.next {
+    right: 1%;
+}
+
+.gallery {
+    width: 100%;
+}
+
+.gallery__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 1%;
+}
