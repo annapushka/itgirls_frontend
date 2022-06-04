@@ -6,54 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hi</title>
-    <style>
-        button {
-            width: 160px;
-            height: 50px;
-            font-size: 20px;
-            background-color: black;
-            color: azure;
-            border: none;
-            border-radius: 50%;
-        }
-
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-            gap: 1em;
-
-        }
-
-        .container div {
-            display: flex;
-            align-items: center;
-            border: 1px solid rgba(0, 0, 0, 0.099);
-            border-radius: 50%;
-            background-color: aquamarine;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div>
+        <input class="data" id="num1" value="0" />
+        <input class="data" id="num2" value="0" />
+    </div>
     <div class="container">
-        <div>
+        <div class="item" onclick="select(this)">
+            <button onclick="sum()"> + </button>
             <h1>(^˵◕ω◕˵^)</h1>
-            <button onclick="sum()">sum</button>
         </div>
-        <div>
-            <h1>(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧</h1>
-            <button onclick="subtract()">subtract</button>
+        <div class="item" onclick="select(this)">
+            <button onclick="subtract()"> - </button>
+            <h1>(ﾉ◕ヮ◕)ﾉ</h1>
         </div>
-        <div>
+        <div class="item" onclick="select(this)">
+            <button onclick="multiply()"> * </button>
             <h1>(๑˘︶˘๑)</h1>
-            <button onclick="multiply()">multiply</button>
         </div>
-        <div>
+        <div class="item" onclick="select(this)">
+            <button onclick="divide()"> : </button>
             <h1>ʕ ᵔᴥᵔ ʔ</h1>
-            <button onclick="divide()">divide</button>
         </div>
     </div>
+    <p class="data data_result" id="result"></p>
     <script src="index.js"></script>
 </body>
 

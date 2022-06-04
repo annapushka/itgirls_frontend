@@ -1,27 +1,41 @@
 function sum() {
-    let a = prompt('Введите a', 0);
-    let b = prompt('Введите b', 0);
-    alert('Сумма: ' + (Number(a) + Number(b)));
+    let num1 = Number(document.getElementById("num1").value);
+    let num2 = Number(document.getElementById("num2").value);
+    let result;
+    result = num1 + num2;
+    document.getElementById("result").innerHTML = result;
 }
 
 function subtract() {
-    let a = prompt('Введите a', 0);
-    let b = prompt('Введите b', 0);
-    alert('Разность: ' + (Number(a) - Number(b)));
+    let num1 = Number(document.getElementById("num1").value);
+    let num2 = Number(document.getElementById("num2").value);
+    let result;
+    result = num1 - num2;
+    document.getElementById("result").innerHTML = result;
 }
 
 function multiply() {
-    let a = prompt('Введите a', 0);
-    let b = prompt('Введите b', 0);
-    alert('Произведение: ' + (Number(a) * Number(b)));
+    let num1 = Number(document.getElementById("num1").value);
+    let num2 = Number(document.getElementById("num2").value);
+    let result;
+    result = num1 * num2;
+    document.getElementById("result").innerHTML = result;
 }
 
 function divide() {
-    let a = prompt('Введите a', 0);
-    let b = prompt('Введите b', 0);
-    if (b == 0) {
-        alert("На ноль делить нельзя! (－‸ლ)");
+    let num1 = Number(document.getElementById("num1").value);
+    let num2 = Number(document.getElementById("num2").value);
+    let result;
+
+    if (num2 === 0) {
+        result = "(－‸ლ)";
+        document.getElementById("result").innerHTML = result;
         return;
     }
-    alert('Частное: ' + (Number(a) / Number(b)));
+    result = num1 / num2;
+    document.getElementById("result").innerHTML = result;
+}
+
+function select(sender) {
+    sender.classList.add('selected');
 }
