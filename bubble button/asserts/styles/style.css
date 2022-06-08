@@ -6,6 +6,7 @@ body {
 
 .glossy-button {
   position: relative;
+  margin: 2%;
   font-size: 16px;
   font-family: Rubik, sans-serif;
   font-weight: bold;
