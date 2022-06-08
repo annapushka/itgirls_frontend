@@ -1,0 +1,69 @@
+body {
+  background-color: rgb(55, 55, 122);
+  /* exemple */
+  @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap');
+}
+
+.glossy-button {
+  position: relative;
+  margin: 2%;
+  font-size: 16px;
+  font-family: Rubik, sans-serif;
+  font-weight: bold;
+  color: white;
+  padding: 15px 0px;
+  width: 220px;
+  border: none;
+  border-radius: 50px;
+  box-shadow:
+    inset 0 3px 2px hsla(0, 0%, 100%, 0.308),
+    inset 0 -1px 2px hsla(0, 0%, 100%, 0.308),
+    0 1px 2px hsla(0, 0%, 0%, 0.414),
+    0 0 0 3px white;
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+
+/* highlight */
+.glossy-button:before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  height: 55px;
+  width: 55px;
+  transform: scale(1.05);
+  background-image: url('../images/vector_drop.svg');
+}
+
+.glossy-button:after {
+  content: '';
+  display: block;
+  position: absolute;
+  transform: rotate(48deg);
+  left: 200px;
+  top: 26px;
+  height: 17px;
+  width: 9.5px;
+  border-radius: 60%;
+  background: linear-gradient(80grad,
+      hsla(0, 0%, 100%, 0.267), hsla(0, 0%, 100%, 0.134));
+}
+
+/* gradient colors from figma*/
+.glossy-button--blue {
+  background: linear-gradient(180deg, #0AB6EF 0%, #35C8F7 16.67%, #07B9F1 43.23%, #5589D6 94.27%, #5D9CCA 100%);
+}
+
+.glossy-button--green {
+  background: linear-gradient(180deg, #CCEF82 0%, #469A29 94.27%, #7CBC55 100%);
+}
+
+.glossy-button--red {
+  background: linear-gradient(180deg, #FAA0A0 0%, #F74135 16.67%, #F33F33 43.23%, #CC524A 94.27%, #E16D6D 100%);
+}
+
+.glossy-button:hover {
+  transform: scale(1.05);
+}
