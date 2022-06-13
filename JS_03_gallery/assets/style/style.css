@@ -18,12 +18,12 @@ body {
 
 .arrow {
     position: absolute;
-    top: 45%;
+    top: 35%;
     padding: 0;
     background: rgba(221, 221, 221, 0.199);
     border-radius: 15px;
     border: 1px solid rgba(87, 64, 150, 0.116);
-    font-size: 4em;
+    font-size: 2em;
     line-height: 1.3em;
     color: rgba(105, 124, 231, 0.308);
 }
