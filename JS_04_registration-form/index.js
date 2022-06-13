@@ -34,7 +34,7 @@ function check() {
         document.getElementById("message").innerHTML += "Пароли не совпадают<br>";
         alert('Пароли не совпадают');
     } else {
-        document.getElementById("message").innerHTML += "Поздравляем с успешной регистрацией<br>";
-        alert('Поздравляем с успешной регистрацией');
+        document.getElementById("message").innerHTML += 'Добро пожаловать, имя пользователя ' + name.value + '!';
+        alert('Добро пожаловать, ' + name.value + '!');
     }
 }
