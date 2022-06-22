@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>auto calculator</title>
+    <link rel="shortcut icon" href="assets/images/car_drive_service_icon.png" type="image/png">
+    <link rel="stylesheet" href="assets/style/normalize.css">
+    <link rel="stylesheet" href="assets/style/style.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body class="container p-5">
+    <!-- Кнопка-триггер модального окна -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Рассчитать стоимость авто
+    </button>
+
+    <!-- Модальное окно -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="car-icon-wrap">
+            <img class="car-icon" src="assets/images/car_drive_service_icon.png" alt="car_drive_service_icon">
+        </div>
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Калькулятор стоимости авто</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Закрыть"></button>
+                </div>
+                <form class="calculator-wrap">
+                    <div class="row mb-3">
+                        <label class="col-sm-6 col-form-label">Цена на акуционе, руб.</label>
+                        <div class="col-sm-6">
+                            <input type="number" class="form-control" id="inputAuctionPrice">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-6 col-form-label">Аукцион</label>
+                        <div class="col-sm-6">
+                            <select class="form-select" id="auction" aria-label="">
+                                <option value="352">ARAI BAYSIDE</option>
+                                <option value="348">BAYAUC</option>
+                                <option value="343">CAA TOKYO</option>
+                                <option value="332">ISUZU KOBE</option>
+                                <option value="300">KAA</option>
+                            </select>
+                        </div>
+                    </div>
+                    <fieldset class="row mb-6">
+                        <legend class="col-form-label col-sm-6 pt-0">Тип услуги</legend>
+                        <div class="col-sm-6">
+                            <div class="form-check" id="service-type">
+                                <input class="form-check-input" type="radio" name="service-type" id="whole_car"
+                                    value="1" checked>
+                                <label class="form-check-label">
+                                    Целый автомобиль
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="service-type" id="cut_car"
+                                    value="0.6">
+                                <label class="form-check-label">
+                                    Распил легковой
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="service-type" id="cut_frame"
+                                    value="0.7">
+                                <label class="form-check-label">
+                                    Распил рамный
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="service-type" id="spares"
+                                    value="0.3">
+                                <label class="form-check-label">
+                                    Запчасти на палете
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset class="row mb-6">
+                        <legend class="col-form-label col-sm-6 pt-0">Тип топлива</legend>
+                        <div class="col-sm-6">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="fuel-type" id="petrol" value="1"
+                                    checked>
+                                <label class="form-check-label">
+                                    бензин (включая гибрид)
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="fuel-type" id="diesel" value="0.8">
+                                <label class="form-check-label">
+                                    дизельное топливо
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="fuel-type" id="electric" value="1.4">
+                                <label class="form-check-label">
+                                    электрический
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="row mb-3">
+                        <label class="col-sm-6 col-form-label">Объем двигателя, см&sup3;</label>
+                        <div class="col-sm-6">
+                            <input type="number" class="form-control" id="engineVolume">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-6 col-form-label">Мощность, л.с.</label>
+                        <div class="col-sm-6">
+                            <input type="number" class="form-control" id="capacity">
+                        </div>
+                    </div>
+                    <fieldset class="row mb-6">
+                        <legend class="col-form-label col-sm-6 pt-0">Возраст автомобиля</legend>
+                        <div class="col-sm-6">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="age" id="less3" value="1">
+                                <label class="form-check-label">
+                                    Меньше 3 лет
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="age" id="3-5" value="0.8" checked>
+                                <label class="form-check-label">
+                                    От 3 до 5 лет
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="age" id="5-7" value="0.6">
+                                <label class="form-check-label">
+                                    От 5 до 7 лет
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="age" id="more7" value="0.4">
+                                <label class="form-check-label">
+                                    Больше 7 лет
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset class="row mb-6">
+                        <legend class="col-form-label col-sm-6 pt-0">Получатель</legend>
+                        <div class="col-sm-6">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="addressee" id="individual" value="1"
+                                    checked>
+                                <label class="form-check-label">
+                                    Физическое лицо
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="addressee" id="enity" value="1.3">
+                                <label class="form-check-label">
+                                    Юридическое лицо
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div id="message" class="alert alert-info"></div>
+                    <div onclick="calculate()" class="modal-footer justify-content-center flex-column">
+                        <button type="button" class="btn btn-primary">Рассчитать</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
