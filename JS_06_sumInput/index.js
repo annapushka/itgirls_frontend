@@ -12,13 +12,13 @@ function sumInput() {
     while(true) {
         let value = prompt("Введите число", '');
         if (value === "" || value === null || !isFinite(value)) break;
-        numbers.push(value);
+        numbers.push(Number(value));
       }
       let sum = 0;
       for (let number of numbers) {
         sum += Number(number);
       }
-      alert('Сумма: ' + sum + '\n' + 'Массив: ' + numbers.sort());
+      alert('Сумма: ' + sum + '\n' + 'Массив: ' + numbers.sort(function(a,b){ return a - b}));
     }
     
     sumInput();
