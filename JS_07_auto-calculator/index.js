@@ -1,15 +1,15 @@
 function calculate() {
-    let auctionPrice = Number(document.getElementById('inputAuctionPrice').value);
-    let auction = Number(document.getElementById('auction').value);
-    let shipping_cost = 100000;
-    let service_type_coefficient = Number(document.querySelector('input[name="service-type"]:checked').value);
-    let fuel_type_coefficient = Number(document.querySelector('input[name="fuel-type"]:checked').value);
-    let engineVolume = Number(document.getElementById('engineVolume').value);
-    let engineVolume_coefficient = 1.2;
-    let capacity = Number(document.getElementById('capacity').value);
-    let capacity_coefficient = 0.8;
-    let age_coefficient = Number(document.querySelector('input[name="age"]:checked').value);
-    let addressee_coefficient = Number(document.querySelector('input[name="addressee"]:checked').value);
+    const auctionPrice = Number(document.getElementById('inputAuctionPrice').value);
+    const auction = Number(document.getElementById('auction').value);
+    const shipping_cost = 100000;
+    const service_type_coefficient = Number(document.querySelector('input[name="service-type"]:checked').value);
+    const fuel_type_coefficient = Number(document.querySelector('input[name="fuel-type"]:checked').value);
+    const engineVolume = Number(document.getElementById('engineVolume').value);
+    const engineVolume_coefficient = 1.2;
+    const capacity = Number(document.getElementById('capacity').value);
+    const capacity_coefficient = 0.8;
+    const age_coefficient = Number(document.querySelector('input[name="age"]:checked').value);
+    const addressee_coefficient = Number(document.querySelector('input[name="addressee"]:checked').value);
     let totaPrice = 0;
 
     document.getElementById('message').innerHTML = "";
