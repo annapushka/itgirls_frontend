@@ -5,14 +5,14 @@
 //  всё в виде двух цифр, т.е. 31.12.16 10:00.
 
 
-let askDate = prompt("Введите дату", '2022-06-26T10:00:00');
+const askDate = prompt("Введите дату", '2022-06-26T10:00:00');
 
 const date = Date.parse(askDate);
 formatDate(date);
 
 function formatDate(date) {
   const now = new Date();
-  let result = now - date;
+  const result = now - date;
   console.log(result);
 
   if (result < 1000) {
