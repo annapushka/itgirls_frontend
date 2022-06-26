@@ -17,7 +17,7 @@ function random() {
     const max = Math.max(...randomArr);
 
     let sum = 0;
-    for (r of randomArr) {
+    for (let r of randomArr) {
         sum += r;
     }
 
