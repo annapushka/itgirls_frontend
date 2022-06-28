@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inquirer</title>
+    <style>
+        body {
+         background: #c7b39b url(https://s7.favim.com/orig/151118/background-cats-wallpaper-homecreen-Favim.com-3590967.jpg) ;
+         color: rgb(26, 20, 20);
+         font-family: Arial;
+        }
+        fieldset{
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>ОПРОСНЫЙ ЛИСТ</h1>
+    <form>
+        <fieldset>
+            <legend><b>Основная информация</b></legend>
+            <div>
+                <label for="petname">Кличка питомца</label> 
+                <input type="text" id="petname" value="Кличка вашего питомца"/>
+            </div>
+            <div>
+                <label for="name">Имя владельца</label> 
+                <input type="text" id="name" value="Ваше имя"/>
+            </div>
+            <div>
+                <label for="contacts">Контакты владельца</label> 
+                <input type="text" id="contacts" value="Телефон для связи"/>
+            </div>
+        </fieldset><br>
+        <div>
+            <label><b>Порода питомца</b>
+            <select>
+                <option value="first option">Абиссинская</option>
+                <option value="second option">Бурмилла длинношёрстный</option>
+                <option value="third option">Йорк</option>
+            </select>
+            </label>
+        </div><br>
+        <div>
+            <p><b>Чем питается</b></p>
+            Рыба <input type="checkbox" name="food" value="fish"/><br>
+            Мыши <input type="checkbox" name="food" value="mouse"/><br>
+            Сосиски <input type="checkbox" name="food" value="sausages"/>
+        </div><br>
+        <div>
+            <p><b>Пол питомца</b></p>
+            Самка <input type="radio" name="sex" value="female"/>
+            Самец <input type="radio" name="sex" value="male"/>
+        </div><br>
+        <div>
+            <label for="comments"><b>Комментарий</b><br>
+            <textarea rows="10" id="comments">Ваш комментарий</textarea></label>
+        </div><br>
+        <div><p>Загрузите фотографии вашего питомца</p>
+            <input type="file" name="photo" multiple accept="image/*,image/jpeg"><br><br>
+            <input type="button" value="Save"/>
+        </div>
+        
+    </form>
+</body>
+</html>
