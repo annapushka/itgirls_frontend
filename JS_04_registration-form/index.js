@@ -1,14 +1,14 @@
 function check() {
-    let name = document.getElementById('exampleInputName');
-    let surname = document.getElementById("exampleInputSurname");
-    let year = document.getElementById("exampleInputBirthYear");
-    let email = document.getElementById("exampleInputEmail1");
-    let password = document.getElementById("exampleInputPassword1");
-    let password2 = document.getElementById("exampleInputPassword2");
-    let password_len = password.value.length;
-    let letters = /^[А-Яа-я]+$/;
-    let mailformat = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    let year_len = year.value.length;
+    const name = document.getElementById('exampleInputName');
+    const surname = document.getElementById("exampleInputSurname");
+    const year = document.getElementById("exampleInputBirthYear");
+    const email = document.getElementById("exampleInputEmail1");
+    const password = document.getElementById("exampleInputPassword1");
+    const password2 = document.getElementById("exampleInputPassword2");
+    const password_len = password.value.length;
+    const constters = /^[А-Яа-я]+$/;
+    const mailformat = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const year_len = year.value.length;
     let name_result = false;
     let surname_result = false;
     let year_result = false;
@@ -19,10 +19,10 @@ function check() {
 
     document.getElementById('message').innerHTML = "";
 
-    if (name.value == '' || !name.value.match(letters)) {
+    if (name.value == '' || !name.value.match(constters)) {
         document.getElementById('message').innerHTML += "Введите корректное имя<br>";
     } else {name_result = true;}
-    if (surname.value == '' || !name.value.match(letters)) {
+    if (surname.value == '' || !name.value.match(constters)) {
         document.getElementById("message").innerHTML += "Введите корректную фамилию<br>";
     } else {surname_result = true;}
     if (year.value == '' || year_len !== 4) {
