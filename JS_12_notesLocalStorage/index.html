@@ -6,28 +6,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>notes</title>
-  <link rel="stylesheet" href="https://unpkg.com/primitive-ui/dist/css/main.css" />
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
-
-    h1,
-    h3,
-    button,
-    li {
-      font-family: 'Montserrat', sans-serif;
-    }
-  </style>
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 
-<body>
-  <div class="small-container">
-    <h1>Заметки для себя любимой</h1>
+<body class="container mt-4">
+  <div class="col-4">
+    <h3 class="display-5">Заметки для себя любимой &#10084;</h3>
     <form>
-      <input id="item" type="text" placeholder="New" required />
+      <input class="form-control" id="item" type="text" placeholder="Запиши что-то важное..." required />
     </form>
-    <h3>Пункты</h3>
-    <ul></ul>
-    <button>Очистить все</button>
+    <h4 class="mt-4 display-6">Пункты</h4>
+    <ul class="list-unstyled"></ul>
+    <button type="button" class="btn btn-primary mt-4">Очистить все</button>
   </div>
   <script src="index.js"></script>
 </body>
