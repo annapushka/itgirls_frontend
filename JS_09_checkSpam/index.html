@@ -22,6 +22,18 @@
     .newMessageBox {
       height: 30vh;
     }
+
+    img {
+      max-width: 3rem;
+    }
+
+    .autor {
+      background-color: rgb(2, 214, 251);
+      color: rgb(2, 0, 0);
+      padding: 0 1em;
+      border-radius: 5px;
+      width: fit-content;
+    }
   </style>
 </head>
 
@@ -29,7 +41,15 @@
   <form onsubmit="return false">
     <div class="mb-3 form-control" id="chatBox">
     </div>
+    <div class="mb-3">
+      <label for="url" class="form-label">Добавьте url фото</label>
+      <input type="url" class="form-control" name="url" id="url" placeholder="https://example.com" pattern="https://.*"
+        size="30">
+      <label for="autor" class="form-label">Введите имя</label>
+      <input type="text" class="form-control" name="autor" id="autor">
+    </div>
     <div class="mb-3 newMessageBox">
+      <label for="newMessage" class="form-label">Введите новое сообщение</label>
       <input type="text" class="form-control" id="newMessage">
       <button class="btn btn-info mt-3 pt-2 mb-3" onclick="addMessage()">Отправить сообщение
         <img class="btn-img" src="assets/img/message_icon.png" alt="message_icon">
