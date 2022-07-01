@@ -5,9 +5,10 @@ function nameNormalizer() {
     let surname = array[0].toLowerCase();
     let name = array[1].toLowerCase();
     let lastName = array[2].toLowerCase();
-    surname = surname[0].toUpperCase() + surname.slice(1);
-    name = name[0].toUpperCase() + name.slice(1);
-    lastName = lastName[0].toUpperCase() + lastName.slice(1);
 
-    alert(`Фамилия: ${surname}, Имя: ${name}, Отчество: ${lastName}`);
+    alert(`Фамилия: ${corrector(surname)}, Имя: ${corrector(name)}, Отчество: ${corrector(lastName)}`);
+}
+
+function corrector(str) {
+    return str[0].toUpperCase() + str.slice(1);
 }
