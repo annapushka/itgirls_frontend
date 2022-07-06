@@ -14,7 +14,7 @@
 
 <body class="container m-2">
     <h1 class="fw-bolder pt-3">ОПРОСНЫЙ ЛИСТ</h1>
-    <form>
+    <form onsubmit="return false">
         <fieldset>
             <legend class="fw-bolder"><b>Основная информация</b></legend>
             <div class="row">
@@ -33,7 +33,7 @@
         <div class="row">
             <label class="col-3"><b>Порода питомца</b>
             </label>
-            <select class="col-6 form-control" style="width: 20rem">
+            <select id="type" class="col-6 form-control" style="width: 20rem">
                 <option value="first option">Абиссинская</option>
                 <option value="second option">Бурмилла длинношёрстный</option>
                 <option value="third option">Йорк</option>
@@ -52,15 +52,16 @@
         </div><br>
         <div>
             <label for="comments"><b>Комментарий</b><br>
-                <textarea class="card" style="width: 20rem;" rows="2" id="comments"></textarea></label>
+                <textarea class="card" style="width: 20rem;" rows="2" id="comment"></textarea></label>
         </div><br>
         <div>
             <p>Загрузите фотографии вашего питомца</p>
-            <input type="file" class="btn btn-light" name="photo" multiple accept="image/*,image/jpeg"><br><br>
+            <input type="file" class="btn btn-light" name="photo" multiple accept="image/*,image/jpeg" id="img"><br><br>
         </div>
-        <button type="submit" class="btn btn-primary mb-3">Отправить</button>
+        <button onClick="takeData()" type="submit" class="btn btn-primary mb-3">Отправить</button>
     </form>
 
+    <script src="index.js"></script>
 </body>
 
 </html>
