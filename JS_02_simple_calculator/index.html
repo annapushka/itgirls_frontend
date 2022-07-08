@@ -10,25 +10,29 @@
 </head>
 
 <body>
+    <div class="wrap-brows">
+        <div class="brows"></div>
+        <div class="brows"></div>
+    </div>
     <div>
         <input class="data" id="num1" value="0" />
         <input class="data" id="num2" value="0" />
     </div>
     <div class="container">
         <div class="item" onclick="select(this)">
-            <button onclick="sum()"> + </button>
+            <button onclick="calculateSum()"> + </button>
             <h1>(^˵◕ω◕˵^)</h1>
         </div>
         <div class="item" onclick="select(this)">
-            <button onclick="subtract()"> - </button>
+            <button onclick="calculateSubstract()"> - </button>
             <h1>(ﾉ◕ヮ◕)ﾉ</h1>
         </div>
         <div class="item" onclick="select(this)">
-            <button onclick="multiply()"> * </button>
+            <button onclick="calculateMultiply()"> * </button>
             <h1>(๑˘︶˘๑)</h1>
         </div>
         <div class="item" onclick="select(this)">
-            <button onclick="divide()"> : </button>
+            <button onclick="calculateDivade()"> : </button>
             <h1>ʕ ᵔᴥᵔ ʔ</h1>
         </div>
     </div>
