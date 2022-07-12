@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;900&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css');
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: rgb(240, 139, 6);
+    color: azure;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    margin: 3rem;
+}
+
+.wrap_price {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.price {
+    margin: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    width: 10rem;
+    height: 10rem;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.226);
+    position: relative;
+    background-color: rgba(240, 248, 255, 0.233);
+    box-shadow: 10px 5px 5px rgba(1, 1, 1, 0.11);
+}
+
+.price:hover {
+    background-color: rgba(3, 134, 248, 0.233);
+}
+
+.price__icon {
+    position: absolute;
+    top: -0.2rem;
+    left: -1.5rem;
+    filter: invert(2);
+    transform: scale(3);
+}
+
+.bitcoin__icon {
+    transform: scale(0.1);
+}
+
+.prise__code {
+    font-size: 3em;
+}
+
+.prise__rate {
+    font-size: 2em;
+}
+
+.time {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.bitcoin {
+    display: flex;
+}
+
+.bitcoin__text {
+    font-size: 1.5em;
+}
+
+.bitcoin__img {
+    max-width: 20%;
+}
