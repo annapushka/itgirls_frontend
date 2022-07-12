@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;900&display=swap');
+
+body {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1em;
+  background: rgb(116, 11, 0);
+  background: radial-gradient(circle, rgba(116, 11, 0, 1) 0%, rgba(0, 0, 0, 1) 95%);
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  gap: 5px;
+}
+
+.hero {
+  background-color: rgb(4, 4, 4);
+  color: white;
+  height: 100%;
+  flex: 1;
+  object-fit: cover;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.hero:hover {
+  flex: 6.5;
+}
+
+.hero__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.hero__info {
+  position: absolute;
+}
+
+.hero__name {
+  font-weight: 900;
+  padding: 1em;
+}
+
+
+[data-tooltip] {
+  position: relative;
+}
+
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  width: 90%;
+  left: 0;
+  top: 0;
+  background: #000404cc;
+  color: #fff;
+  padding: 0.5em;
+  box-shadow: 2px 2px 5px rgba(89, 88, 88, 0.421);
+  pointer-events: none;
+  opacity: 0;
+  transition: 1s;
+  border-radius: 10px;
+}
+
+[data-tooltip]:hover::after {
+  opacity: 1;
+  top: 2em;
+}
+
+
+.star-rating {
+  position: absolute;
+  direction: rtl;
+  bottom: 1em;
+  left: 1em;
+}
+
+.star-rating input[type=radio] {
+  display: none;
+}
+
+.star-rating label {
+
+  color: rgba(255, 255, 255, 0.229);
+  font-size: 2em;
+  padding: 0;
+  cursor: pointer;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.star-rating label:hover,
+.star-rating label:hover~label,
+.star-rating input[type=radio]:checked~label {
+  color: #f2b600;
+}
