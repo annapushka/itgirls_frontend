@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;900&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css');
 
 body {
     font-family: 'Raleway', sans-serif;
@@ -29,10 +28,11 @@ body {
     height: 10rem;
     justify-content: center;
     align-items: center;
-    border: 1px solid rgba(255, 255, 255, 0.226);
+    border: 1px solid rgba(255, 255, 255, 0.041);
     position: relative;
     background-color: rgba(240, 248, 255, 0.233);
-    box-shadow: 10px 5px 5px rgba(1, 1, 1, 0.11);
+    box-shadow: 10px 5px 5px rgba(1, 1, 1, 0.11),
+    inset 10px 5px 5px rgba(253, 252, 252, 0.11);
 }
 
 .price:hover {
