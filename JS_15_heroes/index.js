@@ -119,25 +119,28 @@ document.addEventListener('DOMContentLoaded', function (event) {
             <div class="hero__more" data-tooltip="${hero.more}"> Подробнее &gt;</div>
         </div>
         <div class="star-rating" value="${hero.id}">
-            <input id="star-5" type="radio" name="rating_${hero.id}" value="5" onclick= 'saveStars(\`rating_${hero.id}\`)'/>
-            <label for="star-5" title="5 stars">★</label>&nbsp;
-            <input id="star-4" type="radio" name="rating_${hero.id}" value="4" onclick= 'saveStars(\`rating_${hero.id}\`)'/>
-            <label for="star-4" title="4 stars">★</label>&nbsp;
-            <input id="star-3" type="radio" name="rating_${hero.id}" value="3" onclick= 'saveStars(\`rating_${hero.id}\`)'/>
-            <label for="star-3" title="3 stars">★</label>&nbsp;
-            <input id="star-2" type="radio" name="rating_${hero.id}" value="2" onclick= 'saveStars(\`rating_${hero.id}\`)'/>
-            <label for="star-2" title="2 stars">★</label>&nbsp;
-            <input id="star-1" type="radio" name="rating_${hero.id}" value="1" onclick= 'saveStars(\`rating_${hero.id}\`)'/>
-            <label for="star-1" title="1 star">★</label>
+            <input id="star-5_${hero.id}" type="radio" name="rating_${hero.id}" value="5"/>
+            <label for="star-5_${hero.id}" title="5 stars">★</label>&nbsp;
+            <input id="star-4_${hero.id}" type="radio" name="rating_${hero.id}" value="4"/>
+            <label for="star-4_${hero.id}" title="4 stars">★</label>&nbsp;
+            <input id="star-3_${hero.id}" type="radio" name="rating_${hero.id}" value="3"/>
+            <label for="star-3_${hero.id}" title="3 stars">★</label>&nbsp;
+            <input id="star-2_${hero.id}" type="radio" name="rating_${hero.id}" value="2"/>
+            <label for="star-2_${hero.id}" title="2 stars">★</label>&nbsp;
+            <input id="star-1_${hero.id}" type="radio" name="rating_${hero.id}" value="1"'/>
+            <label for="star-1_${hero.id}" title="1 star">★</label>
         </div>
     </div>`;
-        showStars(`${hero.id}`);
     }
     document.getElementById("container").innerHTML = heroContent;
+    for (let hero of heros) {
+        showStars(`${hero.id}`);
+    }
 });
 
-function saveStars(rating) {
-    const stars = document.querySelector('input:checked').value;
+document.onclick = function (event) {
+    const stars = event.target.value;
+    const rating = event.target.name;
     localStorage.setItem(rating, stars);
 }
 
