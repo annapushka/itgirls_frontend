@@ -1,0 +1,49 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic);
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 1rem;
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.label {
+    font-weight: 800;
+}
+.search__input {
+    border: 1px solid gainsboro;
+    border-radius: 1rem;
+    padding: 0.2rem 1rem 0.2rem 1rem;
+}
+.search__btn {
+    width: 4rem;
+    border: none;
+    background-color: blueviolet;
+    border-radius: 1rem;
+    padding: 0.2rem;
+}
+
+.search__btn:focus {
+   transition: 0.5s;
+   background-color: rgb(205, 161, 249);
+}
+
+.gifContainer {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+    gap: 0.5rem;
+    justify-content: space-between;
+}
+
+.gifContainer__gif{
+    width: 100px;
+    flex: auto;
+    border-radius: 1rem;
+}
