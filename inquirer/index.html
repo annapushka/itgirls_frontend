@@ -14,29 +14,30 @@
 
 <body class="container m-2">
     <h1 class="fw-bolder pt-3">ОПРОСНЫЙ ЛИСТ</h1>
-    <form onsubmit="return false">
+    <form onsubmit="return false" id="form">
         <fieldset>
             <legend class="fw-bolder"><b>Основная информация</b></legend>
             <div class="row">
                 <label class="col-3" for="petname">Кличка питомца</label>
-                <input class="col-6 form-control" style="width: 20rem" type="text" id="petname" required />
+                <input class="col-6 form-control" style="width: 20rem" type="text" id="petname" name="petname"
+                    required />
             </div>
             <div class="row">
                 <label class="col-3" for="name">Имя владельца</label>
-                <input class="col-6 form-control" style="width: 20rem" type="text" id="name" required />
+                <input class="col-6 form-control" style="width: 20rem" type="text" id="name" name="name" required />
             </div>
             <div class="row">
                 <label class="col-3" for="contacts" data-tooltip="Формат ввода: +7(000)-00-00">Телефон владельца</label>
-                <input class="col-6 form-control" style="width: 20rem" type="text" id="contacts" />
+                <input class="col-6 form-control" style="width: 20rem" type="text" id="contacts" name="phone" />
             </div>
         </fieldset><br>
         <div class="row">
             <label class="col-3"><b>Порода питомца</b>
             </label>
-            <select id="type" class="col-6 form-control" style="width: 20rem">
-                <option value="first option">Абиссинская</option>
-                <option value="second option">Бурмилла длинношёрстный</option>
-                <option value="third option">Йорк</option>
+            <select id="type" class="col-6 form-control" style="width: 20rem" name="type">
+                <option value="Абиссинская">Абиссинская</option>
+                <option value="Бурмилла длинношёрстный">Бурмилла длинношёрстный</option>
+                <option value="Йорк">Йорк</option>
             </select>
         </div><br>
         <div>
@@ -52,13 +53,13 @@
         </div><br>
         <div>
             <label for="comments"><b>Комментарий</b><br>
-                <textarea class="card" style="width: 20rem;" rows="2" id="comment"></textarea></label>
+                <textarea class="card" style="width: 20rem;" rows="2" id="comment" name="comments"></textarea></label>
         </div><br>
         <div>
             <p>Загрузите фотографии вашего питомца</p>
             <input type="file" class="btn btn-light" name="photo" multiple accept="image/*,image/jpeg" id="img"><br><br>
         </div>
-        <button onClick="takeData()" type="submit" class="btn btn-primary mb-3">Отправить</button>
+        <button type="submit" class="btn btn-primary mb-3" id="postButton">Отправить</button>
     </form>
 
     <script src="index.js"></script>

@@ -11,26 +11,45 @@ class Cat {
     }
 }
 
-function takeData() {
-    const petname = document.getElementById('petname').value;
-    const name = document.getElementById('name').value;
-    const contacts = document.getElementById('contacts').value;
-    const selectedType = document.getElementById("type");
-    const type = selectedType.options[selectedType.selectedIndex].textContent;
-    const feed = [];
-    const feedCheckboxes = document.querySelectorAll('input[name="food"]:checked');
-    for (var i = 0; i < feedCheckboxes.length; i++) {
-        feed.push(feedCheckboxes[i].value);
-    }
-    const sexArr = document.getElementsByName('sex');
-    let sex;
-    for (let i = 0; i < sexArr.length; i++) {
-        if (sexArr[i].checked) {
-            sex = sexArr[i].value;
-        }
-    }
-    const comment = document.getElementById('comment').value;
-    const img = document.getElementById('img').value;
-    let cat = new Cat(petname, name, contacts, type, feed, sex, comment, img);
-    console.log(cat);
+const postButton = document.getElementById("postButton");
+const formElem = document.getElementById("form");
+
+
+postButton.onclick = function (e) {
+    e.preventDefault();
+
+    fetch("https://httpbin.org/post", {
+            method: 'POST',
+            body: new FormData(formElem)
+        })
+        .then(response => response.json())
+        .then(cat => {
+            console.log(cat);
+        })
+        .catch(error => console.log(error));
 }
+
+
+// function takeData() {
+//     const petname = document.getElementById('petname').value;
+//     const name = document.getElementById('name').value;
+//     const contacts = document.getElementById('contacts').value;
+//     const selectedType = document.getElementById("type");
+//     const type = selectedType.options[selectedType.selectedIndex].textContent;
+//     const feed = [];
+//     const feedCheckboxes = document.querySelectorAll('input[name="food"]:checked');
+//     for (var i = 0; i < feedCheckboxes.length; i++) {
+//         feed.push(feedCheckboxes[i].value);
+//     }
+//     const sexArr = document.getElementsByName('sex');
+//     let sex;
+//     for (let i = 0; i < sexArr.length; i++) {
+//         if (sexArr[i].checked) {
+//             sex = sexArr[i].value;
+//         }
+//     }
+//     const comment = document.getElementById('comment').value;
+//     const img = document.getElementById('img').value;
+//     let cat = new Cat(petname, name, contacts, type, feed, sex, comment, img);
+//     console.log(cat);
+// }
