@@ -9,7 +9,7 @@ function getGIF() {
             console.log(gifs.data[0].url);
             let gifsArr = gifs.data;
             gifsArr.forEach(gif => {
-                document.getElementById('gifContainer').innerHTML += `<img src="${gif.images["480w_still"].url}" class="gifContainer__gif" alt="gif">` 
+                document.getElementById('gifContainer').innerHTML += `<img src="${gif.images.fixed_width.url}" class="gifContainer__gif" alt="gif">` 
             });
         })
         .catch(err => console.log(err));
