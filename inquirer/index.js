@@ -22,11 +22,16 @@ postButton.onclick = function (e) {
             method: 'POST',
             body: new FormData(formElem)
         })
-        .then(response => response.json())
+        .then((response) => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error('Сервер не доступен');
+        })
         .then(cat => {
             console.log(cat);
         })
-        .catch(error => console.log(error));
+        .catch(error => alert(error));
 }
 
 
