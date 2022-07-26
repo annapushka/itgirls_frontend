@@ -120,15 +120,15 @@ document.addEventListener('DOMContentLoaded', function (event) {
         </div>
         <div class="star-rating" value="${hero.id}">
             <input id="star-5_${hero.id}" type="radio" name="rating_${hero.id}" value="5"/>
-            <label for="star-5_${hero.id}" title="5 stars">★</label>&nbsp;
+            <label for="star-5_${hero.id}">★</label>&nbsp;
             <input id="star-4_${hero.id}" type="radio" name="rating_${hero.id}" value="4"/>
-            <label for="star-4_${hero.id}" title="4 stars">★</label>&nbsp;
+            <label for="star-4_${hero.id}">★</label>&nbsp;
             <input id="star-3_${hero.id}" type="radio" name="rating_${hero.id}" value="3"/>
-            <label for="star-3_${hero.id}" title="3 stars">★</label>&nbsp;
+            <label for="star-3_${hero.id}" >★</label>&nbsp;
             <input id="star-2_${hero.id}" type="radio" name="rating_${hero.id}" value="2"/>
-            <label for="star-2_${hero.id}" title="2 stars">★</label>&nbsp;
+            <label for="star-2_${hero.id}" >★</label>&nbsp;
             <input id="star-1_${hero.id}" type="radio" name="rating_${hero.id}" value="1"'/>
-            <label for="star-1_${hero.id}" title="1 star">★</label>
+            <label for="star-1_${hero.id}" >★</label>
         </div>
     </div>`;
     }
