@@ -113,49 +113,53 @@ function getChart() {
     const data = JSON.parse(localStorage.getItem('tasks'));
     console.log(data);
 
-    for (let month of months) {
-        let sum = 0;
-        for (let task of data) {
-            if (task.date.includes(month)) {
-                sum++;
-            }
-        }
-        let taskPerMonth = new TaskPerMonth(month, sum);
-        taskPerMonthArr.push(taskPerMonth);
-    }
-
-    let labels = taskPerMonthArr.map(function (e) {
-        return e.month;
-    });
-    let info = taskPerMonthArr.map(function (e) {
-        return e.num;
-    });
-
-    const ctx = document.getElementById('myChart').getContext('2d');
-    const myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: labels,
-            datasets: [{
-                label: 'my activity',
-                data: info,
-                backgroundColor: '#ff715e42',
-                borderColor: '#ff725e',
-                borderWidth: 3,
-                radius: 4,
-            }]
-        },
-        options: {
-            elements: {
-                line: {
-                    tension: 0.5
+    if(data) {
+        for (let month of months) {
+            let sum = 0;
+            for (let task of data) {
+                if (task.date.includes(month)) {
+                    sum++;
                 }
+            }
+            let taskPerMonth = new TaskPerMonth(month, sum);
+            taskPerMonthArr.push(taskPerMonth);
+        }
+    
+        let labels = taskPerMonthArr.map(function (e) {
+            return e.month;
+        });
+        let info = taskPerMonthArr.map(function (e) {
+            return e.num;
+        });
+    
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'my activity',
+                    data: info,
+                    backgroundColor: '#ff715e42',
+                    borderColor: '#ff725e',
+                    borderWidth: 3,
+                    radius: 4,
+                }]
             },
-            scales: {
-                y: {
-                    beginAtZero: true
+            options: {
+                elements: {
+                    line: {
+                        tension: 0.5
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
                 }
             }
-        }
-    });
+        });
+
+    }
+    
 }
