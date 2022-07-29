@@ -1,3 +1,6 @@
+import DeleteButton from "./DeleteButton";
+import EditButton from "./EditButton";
+
 function WordCard(props) {
     return (
         <div className="word">
@@ -9,8 +12,8 @@ function WordCard(props) {
                 <span className="word__topic">{props.topic}</span>
             </div>
             <div className="word__control">
-                <button className="edit">Edit</button>
-                <button className="delete">Delete</button>
+                <EditButton></EditButton>
+                <DeleteButton></DeleteButton>
             </div>
         </div>
     );

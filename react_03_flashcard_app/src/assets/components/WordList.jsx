@@ -1,3 +1,4 @@
+import AddButton from "./AddButton";
 import WordCard from "./WordCard";
 
 const words = [];
@@ -11,7 +12,7 @@ function WordList(props) {
                 )
             }
             <div className="list__control">
-                <button className="add">Add word</button>
+                <AddButton></AddButton>
             </div>
         </div>
 
