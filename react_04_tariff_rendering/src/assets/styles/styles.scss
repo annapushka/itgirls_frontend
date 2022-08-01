@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;600&display=swap');
+
+.container {
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+padding: 2rem;
+justify-content: center;
+    .tariff {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        min-width: 110px;
+        max-width: 160px;
+        border: 1px solid white;
+        border-radius: 1rem 1rem 0 0;
+        &__name{
+            font-size: 1em;  
+            border-bottom: 1px solid white;
+            color: white;
+            padding: 4%;
+        }
+        &__price{
+            font-size: 3rem;
+            font-weight: 600;
+            position: relative;
+            color: white;
+            padding: 10%;
+            margin: 2rem 0;
+            &::before{
+                content: "руб";
+                position: absolute;
+                font-size: 0.3em;
+                top: 0.5rem;
+                left: 0.5rem;
+            }
+            &::after{
+                content: "/мес";
+                position: absolute;
+                font-size: 0.3em;
+                bottom: 0.5rem;
+                right: 0.5rem;
+            }
+        }
+        &__speed{
+            background-color: #f6f6f6;
+            color: #9d9d9f;
+            font-size: 0.8em;
+            padding: 4%;
+        }
+        &__info{
+            background-color: #eeeeee;
+            color: #9d9d9f;
+            font-size: 0.8em;
+            padding: 4%;
+        }
+    }
+}
+
+.blue {
+    background-color: #2cc1d4;
+}
+.green {
+    background-color: #24ae8d;
+}
+.red {
+    background-color: #f46a5f;
+}
+.black {
+    background-color: #333a44;
+}
+
+.selected{
+    transform: scale(1.1);
+    box-shadow: rgba(75, 75, 75, 0.2) 0px 2px 8px 0px;
+}
