@@ -1,0 +1,16 @@
+@import "../styles/general/colors";
+@import "../styles/general/fonts";
+@import "../styles/general/sizes";
+
+.searchBox{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    &__input{
+        border: none;
+        border-radius: $borderRadius;
+        max-width: 150px;
+        padding: 0.6rem;
+        margin: 0 1rem;
+    }
+}

@@ -1,0 +1,13 @@
+@import "../styles/general/colors";
+@import "../styles/general/fonts";
+@import "../styles/general/sizes";
+
+.header{
+    display: flex;
+    background-color: $backPink;
+    padding: $paddingTx;
+    justify-content: space-between;
+    &__logo{
+        height: 3rem;
+    }
+}

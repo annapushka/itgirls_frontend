@@ -1,0 +1,10 @@
+.list-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    .list__control{
+        padding: 0.1rem;
+    }
+}

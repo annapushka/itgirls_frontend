@@ -1,0 +1,58 @@
+@import "../components/addButton";
+@import "../components/deleteButton";
+@import "../components/editButton";
+@import "../components/saveButton";
+@import "../components/cancelButton";
+@import "../components/header";
+@import "../components/searchBox";
+@import "../components/searchButton";
+@import "../components/wordCard";
+@import "../components/wordList";
+@import "./general/colors";
+@import "./general/fonts";
+@import "./general/sizes";
+
+
+@media screen and (max-width: 479px) {
+    .word{
+        width: 95vw;
+        &__data{
+            flex-wrap: wrap;
+        }
+        &__text{
+            font-size: 1em;
+        }
+        &__russian{
+            font-size: 1em;
+        }
+    }
+}
+
+@media screen and (min-width: 480px) and (max-width: 768px) {
+    .word{
+        width: 80vw;
+        &__data{
+            flex-wrap: wrap;
+        }
+        &__text{
+            font-size: 1.4em;
+        }
+        &__russian{
+            font-size: 1.4em;
+        }
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1279px) {
+    .word{
+        width: 70vw;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .word{
+        width: 50vw;
+    }
+
+}
+

@@ -1,0 +1,206 @@
+.addButton {
+  background-color: #fe198e;
+  color: white;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  min-width: 6rem;
+}
+.addButton:hover {
+  transform: scale(1.05);
+  filter: invert(1) sepia(0) saturate(4) hue-rotate(110deg) brightness(140%) contrast(100%);
+  box-shadow: 0px 4px 16px rgba(78, 55, 55, 0.15);
+}
+
+.deleteButton {
+  background-color: #fe198e;
+  color: white;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  min-width: 6rem;
+}
+.deleteButton:hover {
+  transform: scale(1.05);
+  filter: invert(1) sepia(0) saturate(4) hue-rotate(110deg) brightness(140%) contrast(100%);
+  box-shadow: 0px 4px 16px rgba(78, 55, 55, 0.15);
+}
+
+.editButton {
+  background-color: #3358a1;
+  color: white;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  min-width: 6rem;
+}
+.editButton:hover {
+  transform: scale(1.05);
+  filter: invert(1) sepia(4) saturate(4) hue-rotate(0deg) brightness(140%) contrast(100%);
+  box-shadow: 0px 4px 16px rgba(55, 69, 78, 0.305);
+}
+
+.saveButton {
+  background-color: #fdfdfd;
+  color: white;
+  border-radius: 1rem;
+  padding: 0.3rem;
+  border: 0.3px solid rgba(128, 128, 128, 0.452);
+  min-width: 6rem;
+}
+.saveButton:hover {
+  transform: scale(1.05);
+  border: none;
+  background-color: #fff5d1;
+  box-shadow: 0px 4px 16px rgba(55, 69, 78, 0.305);
+}
+.saveButton__img {
+  width: 1.5rem;
+}
+
+.cancelButton {
+  background-color: rgb(173, 173, 173);
+  color: black;
+  border-radius: 1rem;
+  padding: 0.3rem;
+  border: none;
+  min-width: 6rem;
+}
+.cancelButton:hover {
+  transform: scale(1.05);
+  background-color: #ffbddd;
+  box-shadow: 0px 4px 16px rgba(55, 69, 78, 0.305);
+}
+.cancelButton__img {
+  width: 1.5rem;
+}
+
+.header {
+  display: flex;
+  background-color: #ffbddd;
+  padding: 0.5rem 1rem;
+  justify-content: space-between;
+}
+.header__logo {
+  height: 3rem;
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.searchBox__input {
+  border: none;
+  border-radius: 1rem;
+  max-width: 150px;
+  padding: 0.6rem;
+  margin: 0 1rem;
+}
+
+.searchButton {
+  background-color: #fe198e;
+  color: white;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 1rem;
+  margin: 0 1rem;
+}
+.searchButton:hover {
+  transform: scale(1.05);
+  filter: invert(1) sepia(0) saturate(4) hue-rotate(110deg) brightness(140%) contrast(100%);
+  box-shadow: 0px 4px 16px rgba(78, 55, 55, 0.15);
+}
+.searchButton__img {
+  width: 1.5rem;
+}
+
+.word {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(207, 248, 255, 0.5490196078);
+  border-radius: 1rem;
+  width: 90vw;
+  margin: 0.1rem;
+  opacity: 0.8;
+}
+.word:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 16px rgba(78, 55, 55, 0.15);
+  opacity: 1;
+}
+.word__data {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+}
+.word__text {
+  font-size: 2em;
+}
+.word__russian {
+  font-size: 1.5em;
+  color: #909cb0;
+}
+.word__control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.5rem;
+}
+
+.list-box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+.list-box .list__control {
+  padding: 0.1rem;
+}
+
+@media screen and (max-width: 479px) {
+  .word {
+    width: 95vw;
+  }
+  .word__data {
+    flex-wrap: wrap;
+  }
+  .word__text {
+    font-size: 1em;
+  }
+  .word__russian {
+    font-size: 1em;
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 768px) {
+  .word {
+    width: 80vw;
+  }
+  .word__data {
+    flex-wrap: wrap;
+  }
+  .word__text {
+    font-size: 1.4em;
+  }
+  .word__russian {
+    font-size: 1.4em;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1279px) {
+  .word {
+    width: 70vw;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .word {
+    width: 50vw;
+  }
+}/*# sourceMappingURL=styles.css.map */

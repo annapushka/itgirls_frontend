@@ -1,20 +1,30 @@
+import CancelButton from "./CancelButton";
 import DeleteButton from "./DeleteButton";
 import EditButton from "./EditButton";
+import SaveButton from "./SaveButton";
 
 function WordCard(props) {
+    let action;
+    if (!props.editWord) {
+        action = <div className="word__control">
+            <EditButton></EditButton>
+            <DeleteButton></DeleteButton>
+        </div>;
+    } else {
+        action = <div className="word__control">
+            <SaveButton></SaveButton>
+            <CancelButton></CancelButton>
+        </div>
+    }
     return (
         <div className="word">
             <div className="word__data">
-                <img className="word__img" src={props.img} alt={props.wordEng} />
-                <span className="word__text">{props.wordEng}</span>
+                <span className="word__text">{props.english}</span>
                 <span className="word__transcription">{props.transcription}</span>
-                <span className="word__translation">{props.translation}</span>
-                <span className="word__topic">{props.topic}</span>
+                <span className="word__russian">{props.russian}</span>
+                <span className="word__tags">{props.tags}</span>
             </div>
-            <div className="word__control">
-                <EditButton></EditButton>
-                <DeleteButton></DeleteButton>
-            </div>
+            {action}
         </div>
     );
 }

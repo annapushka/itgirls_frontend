@@ -1,0 +1,17 @@
+@import "../styles/general/colors";
+@import "../styles/general/fonts";
+@import "../styles/general/sizes";
+
+.editButton {
+    background-color: $buttonBlue;
+    color: $txWhite;
+    border-radius: $borderRadius;
+    padding: $paddingTx;
+    border: none;
+    min-width: 6rem;
+    &:hover{
+        transform: scale(1.05);
+        filter: invert(1) sepia(4) saturate(4) hue-rotate(0deg) brightness(140%) contrast(100%);
+        box-shadow: 0px 4px 16px rgba(55, 69, 78, 0.305);
+    }
+}
