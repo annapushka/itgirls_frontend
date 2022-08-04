@@ -10,8 +10,7 @@ const tariffs = [
     price: 300,
     speed: 10,
     info: 'Объем влюченного трафика не ограничен',
-    color: 'blue',
-    isSelected: false
+    color: 'blue'
   },
   {
     id: 2,
@@ -19,8 +18,7 @@ const tariffs = [
     price: 450,
     speed: 50,
     info: 'Объем влюченного трафика не ограничен',
-    color: 'green',
-    isSelected: false
+    color: 'green'
   },
   {
     id: 3,
@@ -28,8 +26,7 @@ const tariffs = [
     price: 550,
     speed: 100,
     info: 'Объем влюченного трафика не ограничен',
-    color: 'red',
-    isSelected: true
+    color: 'red'
   },
   {
     id: 4,
@@ -37,8 +34,7 @@ const tariffs = [
     price: 1000,
     speed: 200,
     info: 'Объем влюченного трафика не ограничен',
-    color: 'black',
-    isSelected: false
+    color: 'black'
   },
 ]
 
@@ -48,7 +44,7 @@ function App() {
       <div className="container">
         {
           tariffs.map((tariff) =>
-          <Tariff key={tariff.id} name={tariff.name} price={tariff.price} speed={tariff.speed} info={tariff.info} color={tariff.color} isSelected={tariff.isSelected}></Tariff>
+          <Tariff key={tariff.id} name={tariff.name} price={tariff.price} speed={tariff.speed} info={tariff.info} color={tariff.color}></Tariff>
           )
         }
       </div>
