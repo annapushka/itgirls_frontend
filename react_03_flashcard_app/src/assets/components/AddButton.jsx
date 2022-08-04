@@ -1,6 +1,6 @@
-function AddButton() {
+function AddButton(props) {
     return (
-        <button className="addButton">Add</button>
+        <button onClick={() => props.buttonClick()} className="addButton">Add</button>
     );
 }
 

@@ -1,8 +1,8 @@
 import background from "../img/cancelIcon.png";
 
-function CancelButton() {
+function CancelButton(props) {
     return (
-        <button className="cancelButton">
+        <button onClick={() => props.buttonClick()} className="cancelButton">
             <img src={background} alt="save" className="cancelButton__img" />
         </button>
     );
