@@ -21,16 +21,31 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: flex-start;
         gap: 1rem;
         padding: $paddingTx;
+        width: 100%;
+        justify-content: space-between;
     }
     &__text{
         font-size: $h1;
     }
     &__russian{
         font-size: $h2;
-        color: $txBlue;
+        color: $txWhite;
+        background-color: black;
+        padding: $paddingTx;
+        border-radius: $borderRadius;
+    }
+    &__check{
+        font-size: $h2;
+        color: $txWhite;
+        background-color: $backPink;
+        padding: $paddingTx;
+        border-radius: $borderRadius;
+    }
+    &__tags{
+        color: $txDarkBlue;
+        font-size: 1.2em;
     }
     &__control{
         display: flex;
@@ -38,5 +53,11 @@
         align-items: center;
         gap: 0.4rem;
         margin: 0.5rem;
+    }
+    &__input{
+        @include inputLight;
+        margin: 0;
+        min-width: 6rem;
+        width: 10vw;
     }
 }

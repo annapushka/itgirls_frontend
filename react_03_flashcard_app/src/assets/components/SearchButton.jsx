@@ -1,8 +1,8 @@
 import background from "../img/searchIcon.png";
 
-function SearchButton(props) {
+function SearchButton() {
     return (
-        <button onClick={() => props.buttonClick()} className="searchButton">
+        <button className="searchButton">
             <img src={background} alt="search" className="searchButton__img" />
         </button>
     );

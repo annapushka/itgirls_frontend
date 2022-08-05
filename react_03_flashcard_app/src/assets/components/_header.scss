@@ -3,11 +3,15 @@
 @import "../styles/general/sizes";
 
 .header{
+    width: 100vw;
+    position: fixed;
+    z-index: 2;
     display: flex;
     background-color: $backPink;
-    padding: $paddingTx;
     justify-content: space-between;
+    padding: 0.5rem 0;
     &__logo{
         height: 3rem;
+        padding-left: 2rem;
     }
 }

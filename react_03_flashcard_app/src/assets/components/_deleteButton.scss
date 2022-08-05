@@ -10,8 +10,6 @@
     border: none;
     min-width: 6rem;
     &:hover{
-        transform: scale(1.05);
         filter: invert(1) sepia(0) saturate(4) hue-rotate(110deg) brightness(140%) contrast(100%);
-        box-shadow: 0px 4px 16px rgba(78, 55, 55, 0.15);
     }
 }

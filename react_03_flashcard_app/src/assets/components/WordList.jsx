@@ -6,8 +6,7 @@ const json = `[{
     "english": "pale",
     "transcription": "[ peɪl ]",
     "russian": "бледный",
-    "tags": "цвета",
-    "editWord": true
+    "tags": "цвета"
 }, {
     "id": "12076",
     "english": "yellow",
@@ -132,7 +131,7 @@ function WordList(props) {
             <div className="list">
                 {
                     words.map((word) =>
-                        <WordCard key={word.id} english={word.english} transcription={word.transcription} russian={word.russian} tags={word.tags} editWord={word.editWord}></WordCard>
+                        <WordCard key={word.id} english={word.english} transcription={word.transcription} russian={word.russian} tags={word.tags}></WordCard>
                     )
                 }
             </div>

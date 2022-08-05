@@ -5,6 +5,7 @@
   padding: 0.5rem 1rem;
   border: none;
   min-width: 6rem;
+  margin-top: 0.5rem;
 }
 .addButton:hover {
   transform: scale(1.05);
@@ -21,9 +22,7 @@
   min-width: 6rem;
 }
 .deleteButton:hover {
-  transform: scale(1.05);
   filter: invert(1) sepia(0) saturate(4) hue-rotate(110deg) brightness(140%) contrast(100%);
-  box-shadow: 0px 4px 16px rgba(78, 55, 55, 0.15);
 }
 
 .editButton {
@@ -49,10 +48,8 @@
   min-width: 6rem;
 }
 .saveButton:hover {
-  transform: scale(1.05);
   border: none;
   background-color: #fff5d1;
-  box-shadow: 0px 4px 16px rgba(55, 69, 78, 0.305);
 }
 .saveButton__img {
   width: 1.5rem;
@@ -67,35 +64,41 @@
   min-width: 6rem;
 }
 .cancelButton:hover {
-  transform: scale(1.05);
   background-color: #ffbddd;
-  box-shadow: 0px 4px 16px rgba(55, 69, 78, 0.305);
 }
 .cancelButton__img {
   width: 1.5rem;
 }
 
 .header {
+  width: 100vw;
+  position: fixed;
+  z-index: 2;
   display: flex;
   background-color: #ffbddd;
-  padding: 0.5rem 1rem;
   justify-content: space-between;
+  padding: 0.5rem 0;
 }
 .header__logo {
   height: 3rem;
+  padding-left: 2rem;
 }
 
 .searchBox {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  padding-right: 2rem;
 }
 .searchBox__input {
+  outline: none;
   border: none;
   border-radius: 1rem;
   max-width: 150px;
   padding: 0.6rem;
   margin: 0 1rem;
+  color: #5b6c8f;
+  font-size: 1.1em;
 }
 
 .searchButton {
@@ -136,16 +139,31 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
   gap: 1rem;
   padding: 0.5rem 1rem;
+  width: 100%;
+  justify-content: space-between;
 }
 .word__text {
   font-size: 2em;
 }
 .word__russian {
   font-size: 1.5em;
-  color: #909cb0;
+  color: white;
+  background-color: black;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+}
+.word__check {
+  font-size: 1.5em;
+  color: white;
+  background-color: #ffbddd;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+}
+.word__tags {
+  color: #5b6c8f;
+  font-size: 1.2em;
 }
 .word__control {
   display: flex;
@@ -154,16 +172,34 @@
   gap: 0.4rem;
   margin: 0.5rem;
 }
+.word__input {
+  outline: none;
+  border: none;
+  border-radius: 1rem;
+  max-width: 150px;
+  padding: 0.6rem;
+  margin: 0 1rem;
+  color: #5b6c8f;
+  font-size: 1.1em;
+  margin: 0;
+  min-width: 6rem;
+  width: 10vw;
+}
 
 .list-box {
+  padding-top: 5rem;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: center;
+  align-content: center;
   gap: 1rem;
 }
 .list-box .list__control {
+  position: fixed;
+  top: 4.5rem;
+  right: 2%;
   padding: 0.1rem;
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 479px) {
@@ -179,6 +215,34 @@
   .word__russian {
     font-size: 1em;
   }
+  .word__check {
+    font-size: 1em;
+  }
+  .word__tags {
+    font-size: 1em;
+  }
+  .searchButton {
+    margin: 0.5rem 1rem 0.5rem 0rem;
+  }
+  .searchButton__img {
+    width: 1.2rem;
+  }
+  .searchBox {
+    justify-content: flex-end;
+  }
+  .list {
+    margin-top: 3rem;
+  }
+  .list-box .list__control {
+    position: fixed;
+    left: calc(50% - 3rem);
+  }
+  .searchBox {
+    padding-right: 0.2rem;
+  }
+  .header__logo {
+    padding-left: 1rem;
+  }
 }
 @media screen and (min-width: 480px) and (max-width: 768px) {
   .word {
@@ -192,6 +256,19 @@
   }
   .word__russian {
     font-size: 1.4em;
+  }
+  .word__check {
+    font-size: 1.4em;
+  }
+  .word__tags {
+    font-size: 1.4em;
+  }
+  .list {
+    margin-top: 3rem;
+  }
+  .list-box .list__control {
+    position: fixed;
+    left: calc(50% - 3rem);
   }
 }
 @media screen and (min-width: 769px) and (max-width: 1279px) {

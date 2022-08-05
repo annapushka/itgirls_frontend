@@ -1,10 +1,15 @@
 .list-box {
+    padding-top: 5rem;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: center;
+    align-content: center;
     gap: 1rem;
     .list__control{
+        position: fixed;
+        top: 4.5rem;
+        right: 2%;
         padding: 0.1rem;
+        opacity: 0.8;
     }
 }

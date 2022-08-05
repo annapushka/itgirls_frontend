@@ -11,6 +11,7 @@
 @import "./general/colors";
 @import "./general/fonts";
 @import "./general/sizes";
+@import "./general/mixin";
 
 
 @media screen and (max-width: 479px) {
@@ -24,6 +25,36 @@
         }
         &__russian{
             font-size: 1em;
+        }
+        &__check{
+            font-size: 1em;
+        }
+        &__tags{
+            font-size: 1em;
+        }
+    }
+    .searchButton {
+        margin: 0.5rem 1rem 0.5rem 0rem;
+        &__img{
+            width: 1.2rem;
+        }
+    }
+    .searchBox{
+        justify-content: flex-end;
+    }
+    .list{
+        margin-top: 3rem;
+    }
+    .list-box .list__control{
+        position: fixed;
+        left: calc(50% - 3rem);
+    }
+    .searchBox{
+        padding-right: 0.2rem;
+    }
+    .header{
+        &__logo{
+            padding-left: 1rem;
         }
     }
 }
@@ -40,6 +71,19 @@
         &__russian{
             font-size: 1.4em;
         }
+        &__check{
+            font-size: 1.4em;
+        }
+        &__tags{
+            font-size: 1.4em;
+        }
+    }
+    .list{
+        margin-top: 3rem;
+    }
+    .list-box .list__control{
+        position: fixed;
+        left: calc(50% - 3rem);
     }
 }
 
@@ -47,6 +91,7 @@
     .word{
         width: 70vw;
     }
+    
 }
 
 @media screen and (min-width: 1280px) {
