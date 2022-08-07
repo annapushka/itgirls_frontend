@@ -8,20 +8,33 @@ function WordCard(props) {
 
     const [pressed, setPressed] = useState(false);
     const handleChange = () => {
-        setPressed(!pressed);
+        setPressed(prevState => !prevState);
     }
 
     const [changed, setChanged] = useState(false);
     const handleEdit = () => {
-        setChanged(!changed);
+        setChanged(prevState => !prevState);
     }
 
     const [changedInput, setChangedInput] = useState(false);
     const handleChangeInput = () => {
-        setChangedInput(!changedInput);
+        setChangedInput(prevState => !prevState);
+        editCard();
     }
     const handleDeleteChangeInput = () => {
-        setChangedInput(changedInput);
+        setChangedInput(prevState => prevState);
+    }
+
+    const [cardArray, setCardArray] = useState(props.words);
+
+    const editCard = (editCardId, newEnglish, newTranscription, newRussian, newTags) => {
+        setCardArray(prevState =>
+            prevState.map(word =>
+                word.id === editCardId
+                    ? { ...word, english: newEnglish, transcription: newTranscription, russian: newRussian, tags: newTags }
+                    : word
+            )
+        )
     }
 
 
@@ -29,7 +42,7 @@ function WordCard(props) {
         <div className="word" >
             {changed ? (
                 <>
-                    <div className="word__data">
+                    <div className="word__data" id={props.id}>
                         <input className="word__input english" defaultValue={props.english} />
                         <input className="word__input transcription" defaultValue={props.transcription} />
                         <input className="word__input russian" defaultValue={props.russian} />
@@ -56,7 +69,6 @@ function WordCard(props) {
                             </>
                         ) : (
                             <>
-                                {/* нужно сейчас изменять JSON и вписывать новые занчения? */}
                                 <span className="word__text">???</span>
                                 <span className="word__transcription">???</span>
                                 {pressed ? (
@@ -73,8 +85,9 @@ function WordCard(props) {
                         <DeleteButton></DeleteButton>
                     </div>
                 </>
-            )}
-        </div>
+            )
+            }
+        </div >
     );
 }
 

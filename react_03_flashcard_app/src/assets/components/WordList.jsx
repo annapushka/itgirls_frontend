@@ -126,12 +126,13 @@ const json = `[{
 const words = JSON.parse(json);
 
 function WordList(props) {
+
     return (
         <div className="list-box">
             <div className="list">
                 {
                     words.map((word) =>
-                        <WordCard key={word.id} english={word.english} transcription={word.transcription} russian={word.russian} tags={word.tags}></WordCard>
+                        <WordCard words={words} key={word.id} english={word.english} transcription={word.transcription} russian={word.russian} tags={word.tags}></WordCard>
                     )
                 }
             </div>
