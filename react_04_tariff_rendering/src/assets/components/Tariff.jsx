@@ -4,9 +4,9 @@ function Tariff(props) {
     let selected = "";
     const [checked, setChecked] = useState(false);
     const handleClick = (event) => {
-        setChecked(!checked);
+        setChecked(prevState => !prevState);
     };
-    if (checked) selected = "selected";
+    selected = checked ? "selected" : "";
 
     return (
         <div onClick={handleClick} className={`tariff ${props.color} ${selected}`}>
