@@ -1,5 +1,5 @@
 .list-box {
-    padding-top: 5rem;
+    padding-top: 1rem;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -7,9 +7,10 @@
     gap: 1rem;
     .list__control{
         position: fixed;
-        top: 4.5rem;
+        top: 30rem;
         right: 2%;
         padding: 0.1rem;
         opacity: 0.8;
     }
 }
+
