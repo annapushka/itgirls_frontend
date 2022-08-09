@@ -228,11 +228,30 @@
   max-width: 80%;
 }
 .card-slider .word {
+  -webkit-animation: 1s show linear;
+          animation: 1s show linear;
+  opacity: 1;
   min-width: 200px;
   max-width: 20vw;
   height: 20rem;
   align-items: stretch;
   padding: 1rem;
+}
+@-webkit-keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 .card-slider .word__control {
   display: none;
