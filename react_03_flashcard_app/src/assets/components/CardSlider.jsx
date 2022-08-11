@@ -5,13 +5,13 @@ import Forward from "../img/arrow_forward_icon.png";
 
 function CardSlider(props) {
     const [count, setCount] = useState(0);
-    const { id, ...itemProps } = props.words[count];
-    const arrWords = [...props.words];
+    const { words: arrWords } = props;
+    const { id, ...itemProps } = arrWords[count];
     const handleCountNext = () => {
-        (count < arrWords.length - 1) ? setCount(count + 1) : setCount(0);
+        (count < arrWords.length - 1) ? setCount(prevState => prevState + 1) : setCount(0);
     }
     const handleCountBack = () => {
-        (count > 0) ? setCount(count - 1) : setCount(arrWords.length - 1);
+        (count > 0) ? setCount(prevState => prevState - 1) : setCount(arrWords.length - 1);
     }
 
 

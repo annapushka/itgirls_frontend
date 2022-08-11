@@ -3,7 +3,7 @@ import WordCard from "./WordCard";
 
 function WordList(props) {
 
-    const cardArray = props.words;
+    const cardArray = [...props.words];
 
     return (
         <div className="list-box">
