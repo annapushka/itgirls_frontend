@@ -10,7 +10,7 @@ function WordList(props) {
             <div className="list">
                 {
                     cardArray.map((word) =>
-                        <WordCard words={cardArray} key={word.id} english={word.english} transcription={word.transcription} russian={word.russian} tags={word.tags}></WordCard>
+                        <WordCard words={cardArray} key={word.id} {...word}></WordCard>
                     )
                 }
             </div>

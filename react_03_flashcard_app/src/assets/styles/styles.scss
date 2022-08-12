@@ -9,13 +9,13 @@
 @import "../components/wordCard";
 @import "../components/wordList";
 @import "../components/cardSlider";
+@import "../components/noMath";
 @import "./general/colors";
 @import "./general/fonts";
 @import "./general/sizes";
 @import "./general/mixin";
 
 // loading
-
 :root {
     --duration: 10s;
 }
@@ -167,9 +167,24 @@
 // and Loading
 
 @media screen and (max-width: 479px) {
+    .header {
+        font-size: 1.1em;
+        &__logo, &__nav-img {
+            height: 2.2rem;
+            padding: 0;
+            margin: 0;
+        }
+        &__nav-text{
+            display: none;
+        }
+    }
+
+    .header__nav {
+        padding-left: 3%;
+    }
+
     .word {
-        z-index: -1;
-        width: 95vw;
+        width: 90vw;
 
         &__data {
             flex-wrap: wrap;
@@ -193,7 +208,8 @@
     }
 
     .searchButton {
-        margin: 0.5rem 1rem 0.5rem 0rem;
+        margin: 0.5rem 0rem 0.5rem 0rem;
+        padding: 0.4em 0.5em;
 
         &__img {
             width: 1.2rem;
@@ -202,19 +218,16 @@
 
     .searchBox {
         justify-content: flex-end;
+        flex-wrap: wrap;
         padding: 0;
-        padding-right: 0.2rem;
+        padding-right: 3%;
 
         &__input {
             max-width: 100px;
             padding: 0.6rem;
             margin: 0 0.5rem;
-            font-size: 1em;
+            font-size: 0.9em;
         }
-    }
-
-    .list {
-        margin-top: 5rem;
     }
 
     .list__control {
@@ -223,26 +236,76 @@
         left: calc(50% - 3rem);
     }
 
-    .header {
-        &__logo {
-            padding-left: 1rem;
-        }
-    }
-
     .card-slider {
         gap: 0rem;
+        padding-top: 6rem;
 
         &__btn {
-            margin: -2rem;
+            z-index: 2;
+            background-color: transparent;
+            &:hover {
+                background-color: transparent;
+            }
         }
     }
 
     .dot {
         font-size: 180%;
     }
+
+    .noMatch {
+        height: 70vh;
+        gap: 2rem;
+        &__img {
+            max-width: 7em;
+        }
+        &__text {
+            font-size: 1rem;
+            text-align: center;
+            padding: 2%;
+        }
+    }
 }
 
 @media screen and (min-width: 480px) and (max-width: 768px) {
+    .header {
+        font-size: 1.5em;
+        &__nav-text{
+            display: none;
+        }
+        &__logo {
+            padding-left: 0;;
+        }
+    }
+
+    .header__nav {
+        padding-left: 2%;
+    }
+
+    .searchBox {
+        justify-content: flex-end;
+        padding: 0;
+        padding-right: 2%;
+
+        &__input {
+            max-width: 120px;
+            padding: 0.65rem;
+            margin: 0 0.5rem;
+        }
+    }
+
+    .searchButton {
+        margin: 0.5rem 1rem 0.5rem 0rem;
+
+        &__img {
+            width: 1.4rem;
+        }
+    }
+
+    .card-slider {
+        padding-top: 6rem;
+    }
+
     .word {
         width: 80vw;
 
@@ -268,16 +331,24 @@
     }
 
     .list {
-        margin-top: 5rem;
+        margin-top: 1rem;
     }
 
-    .list__control {
-        position: sticky;
-        top: 0;
-        left: calc(50% - 3rem);
-    }
     .dot {
         font-size: 3rem;
+    }
+
+    .noMatch {
+        height: 70vh;
+        gap: 2rem;
+        &__img {
+            max-width: 7em;
+        }
+        &__text {
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 2%;
+        }
     }
 }
 
@@ -286,12 +357,12 @@
         width: 70vw;
     }
 
-    .list__control {
-        position: sticky;
-        top: 0;
-        right: 1rem;
+    .header__nav {
+        padding-left: 5%;
     }
-
+    .searchBox {
+        padding-right: 5%;
+    }
 }
 
 @media screen and (min-width: 1280px) {

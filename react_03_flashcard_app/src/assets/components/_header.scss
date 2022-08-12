@@ -2,7 +2,7 @@
 @import "../styles/general/fonts";
 @import "../styles/general/sizes";
 
-.header{
+.header {
     width: 100vw;
     position: fixed;
     z-index: 2;
@@ -10,8 +10,24 @@
     background-color: $backPink;
     justify-content: space-between;
     padding: 0.5rem 0;
-    &__logo{
+    font-size: 1.5em;
+    align-content: center;
+    a {
+        text-decoration: none;
+        color: black;
+        display: flex;
+        align-items: center;
+        &:hover {
+            color: $txWhite;
+        }
+    }
+    &__logo, &__nav-img {
         height: 3rem;
         padding-left: 2rem;
+    }
+    &__nav{
+        display: flex;
+        gap: 1.8rem;
+        padding-left: 15%;
     }
 }
