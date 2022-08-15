@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import CancelButton from "./CancelButton";
 import DeleteButton from "./DeleteButton";
 import EditButton from "./EditButton";
 import SaveButton from "./SaveButton";
 
 function WordCard(props) {
+
+    const ref = useRef();
+
+    useEffect(() => ref.current.focus(), []);
 
     const [pressed, setPressed] = useState(false);
     const handleChange = () => {
@@ -63,7 +67,7 @@ function WordCard(props) {
                                 {pressed ? (
                                     <span onClick={handleChange} className="word__russian">{props.russian}</span>
                                 ) : (
-                                    <span onClick={handleChange} className="word__check">let's check...</span>
+                                    <span ref={ref} onClick={handleChange} className="word__check">let's check...</span>
                                 )}
                                 <span className="word__tags">{props.tags}</span>
                             </>
@@ -74,7 +78,7 @@ function WordCard(props) {
                                 {pressed ? (
                                     <span onClick={handleChange} className="word__russian">???</span>
                                 ) : (
-                                    <span onClick={handleChange} className="word__check">let's check...</span>
+                                    <span ref={ref} onClick={handleChange} className="word__check">let's check...</span>
                                 )}
                                 <span className="word__tags">???</span>
                             </>

@@ -96,14 +96,21 @@
 .header__nav {
   display: flex;
   gap: 1.8rem;
-  padding-left: 15%;
+  padding-left: 10%;
+}
+.header__nav-text_say {
+  font-size: 0.7em;
+  line-height: 140%;
+  padding: 1% 0;
+  color: white;
+  text-align: center;
 }
 
 .searchBox {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  padding-right: 15%;
+  padding-right: 10%;
   font-size: 1rem;
 }
 .searchBox__input {
@@ -176,6 +183,7 @@
   background-color: #ffbddd;
   padding: 0.5rem 1rem;
   border-radius: 1rem;
+  cursor: pointer;
 }
 .word__tags {
   color: #5b6c8f;
@@ -275,6 +283,17 @@
 }
 .card-slider .word__text {
   padding: 3rem 0;
+}
+
+.learned-words {
+  text-align: center;
+  padding: 5%;
+  font-size: 1.2em;
+}
+.learned-words__num_pink {
+  font-size: 1.5em;
+  color: #fe198e;
+  font-weight: 600;
 }
 
 .noMatch {
@@ -549,6 +568,9 @@
   .card-slider__btn:hover {
     background-color: transparent;
   }
+  .learned-words__num_pink {
+    font-size: 1.1em;
+  }
   .dot {
     font-size: 180%;
   }
@@ -640,6 +662,9 @@
   }
   .header__nav {
     padding-left: 5%;
+  }
+  .header__nav-text_say {
+    display: none;
   }
   .searchBox {
     padding-right: 5%;

@@ -25,9 +25,16 @@
         height: 3rem;
         padding-left: 2rem;
     }
-    &__nav{
+    &__nav {
         display: flex;
         gap: 1.8rem;
-        padding-left: 15%;
+        padding-left: 10%;
+    }
+    &__nav-text_say {
+        font-size: 0.7em;
+        line-height: 140%;
+        padding: 1% 0;
+        color: $txWhite;
+        text-align: center;
     }
 }

@@ -53,3 +53,14 @@
         }
     }
 }
+
+.learned-words {
+    text-align: center;
+    padding: 5%;
+    font-size: 1.2em;
+    &__num_pink {
+        font-size: 1.5em;
+        color: $buttonPink;
+        font-weight: 600;
+    }
+}

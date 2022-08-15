@@ -21,6 +21,7 @@ function Header() {
                     <div className="header__nav-text">Let's train...</div>
                     <img src={Img} alt="play" className="header__nav-img" />
                 </Link>
+                <div className="header__nav-text header__nav-text_say">"With the possible exception of the equator, everything begins somewhere"<br /> - C.S. Lewis</div>
             </div>
             <SearchBox></SearchBox>
         </div>

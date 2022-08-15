@@ -249,6 +249,10 @@
         }
     }
 
+    .learned-words__num_pink {
+        font-size: 1.1em;
+    }
+
     .dot {
         font-size: 180%;
     }
@@ -359,6 +363,9 @@
 
     .header__nav {
         padding-left: 5%;
+    }
+    .header__nav-text_say{
+        display: none;
     }
     .searchBox {
         padding-right: 5%;

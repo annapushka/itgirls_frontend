@@ -42,6 +42,7 @@
         background-color: $backPink;
         padding: $paddingTx;
         border-radius: $borderRadius;
+        cursor: pointer;
     }
     &__tags{
         color: $txDarkBlue;
