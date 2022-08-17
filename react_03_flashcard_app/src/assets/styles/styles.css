@@ -183,7 +183,13 @@
   background-color: #ffbddd;
   padding: 0.5rem 1rem;
   border-radius: 1rem;
+  border: none;
   cursor: pointer;
+}
+.word__check:focus {
+  outline: 0;
+  transform: scale(1.05);
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 .word__tags {
   color: #5b6c8f;

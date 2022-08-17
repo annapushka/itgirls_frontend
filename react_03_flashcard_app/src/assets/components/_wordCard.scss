@@ -42,7 +42,13 @@
         background-color: $backPink;
         padding: $paddingTx;
         border-radius: $borderRadius;
+        border: none;
         cursor: pointer;
+        &:focus {
+            outline: 0;
+            transform: scale(1.05);
+            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        }
     }
     &__tags{
         color: $txDarkBlue;

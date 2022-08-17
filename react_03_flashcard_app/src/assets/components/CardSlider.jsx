@@ -11,13 +11,23 @@ function CardSlider(props) {
     const [learnedWords, setLearnedWords] = useState(0);
 
     const handleCountNext = () => {
-        (count < arrWords.length - 1) ? setCount(prevState => prevState + 1) : setCount(0);
-        (learnedWords < arrWords.length - 1) ? setLearnedWords(prevState => prevState + 1) : setLearnedWords(arrWords.length);
+        setCount(prevState => (prevState < arrWords.length - 1) ? prevState + 1 : 0);
+        setLearnedWords(prevState => (prevState < arrWords.length - 1) ? prevState + 1 : arrWords.length);
     }
     const handleCountBack = () => {
-        (count > 0) ? setCount(prevState => prevState - 1) : setCount(arrWords.length - 1);
+        setCount(prevState => (prevState > 0) ? prevState - 1 : 0);
     }
 
+    let userResult;
+    if (learnedWords === arrWords.length) {
+        userResult = <span className="learned-words__num">Keep it up! You learned <span className="learned-words__num_pink">ALL</span> the words!</span>;
+    }
+    else if (learnedWords === 0) {
+        userResult = <span className="learned-words__num">Here goes!</span>;
+    }
+    else {
+        userResult = <span className="learned-words__num">You learned <span className="learned-words__num_pink">{learnedWords}</span> out of {arrWords.length} today!</span>;
+    }
 
     return (
         <>
@@ -31,13 +41,7 @@ function CardSlider(props) {
                 </button>
             </div>
             <div className="learned-words">
-                {
-                    (learnedWords === arrWords.length)
-                        ? <span className="learned-words__num">Keep it up! You learned <span className="learned-words__num_pink">ALL</span> the words!</span>
-                        : ((learnedWords === 0)
-                            ? <span className="learned-words__num">Here goes!</span>
-                            : <span className="learned-words__num">You learned <span className="learned-words__num_pink">{learnedWords}</span> out of {arrWords.length} today!</span>)
-                }
+                {userResult}
             </div>
         </>
     );
