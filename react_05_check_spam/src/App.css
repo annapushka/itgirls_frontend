@@ -1,0 +1,47 @@
+.btn-img {
+  max-width: 2rem;
+  margin-left: 1rem;
+}
+
+#chatBox {
+  height: 60vh;
+  overflow-y: scroll;
+}
+
+.newMessageBox {
+  height: 30vh;
+}
+
+img {
+  max-width: 3rem;
+}
+
+.autor {
+  background-color: rgb(2, 214, 251);
+  color: rgb(2, 0, 0);
+  padding: 0 1em;
+  border-radius: 5px;
+  width: fit-content;
+}
+
+.new {
+  background-color: azure;
+  box-shadow: 0px 4px 16px rgba(78, 55, 55, 0.15);
+  border-radius: 1rem 0;
+  margin-bottom: 2rem;
+  width: fit-content;
+  position: relative;
+}
+
+.new::after {
+  content: 'new message';
+  position: absolute;
+  right: 1%;
+  bottom: -1.2rem;
+  color: rgba(60, 171, 171, 0.558);
+}
+
+.text {
+  display: flex;
+  flex-wrap: wrap;
+}
