@@ -34,9 +34,6 @@ function WordCard(props) {
 
     const [isVerified, setValid] = useState(true);
 
-    //invalid indicator
-    let isValidClass = "";
-
     //disabled indicator
     let isDisabled = "";
 
@@ -51,10 +48,12 @@ function WordCard(props) {
         const info = e.target.value;
         if (isValid(info)) {
             setValid(true);
+            e.target.className = 'word__input';
             setData({ ...data, [name]: info });
         } else {
-            e.target.className = e.target.className + "notValid";
+            e.target.className = 'word__input notValid';
             setValid(false);
+            setData({ ...data, [name]: info });
         }
     }
 
@@ -71,6 +70,7 @@ function WordCard(props) {
             editCard();
         } else {
             isDisabled = "desabled";
+            setChanged(prevState => !prevState);
         }
     }
 
@@ -98,10 +98,10 @@ function WordCard(props) {
                 <>
                     {!isVerified && <div className="error">Please fill in all fields correctly...</div>}
                     <div className="word__data" id={props.id}>
-                        <input className={`word__input ${isValidClass}`} value={data.english} name='english' onChange={handleChangeData} />
-                        <input className={`word__input ${isValidClass}`} value={data.transcription} name='transcription' onChange={handleChangeData} />
-                        <input className={`word__input ${isValidClass}`} value={data.russian} name='russian' onChange={handleChangeData} />
-                        <input className={`word__input ${isValidClass}`} value={data.tags} name='tags' onChange={handleChangeData} />
+                        <input className='word__input' value={data.english} name='english' onChange={handleChangeData} />
+                        <input className='word__input' value={data.transcription} name='transcription' onChange={handleChangeData} />
+                        <input className='word__input' value={data.russian} name='russian' onChange={handleChangeData} />
+                        <input className='word__input' value={data.tags} name='tags' onChange={handleChangeData} />
                     </div>
                     <div onClick={handleEdit} className="word__control">
                         <SaveButton desabled={isDisabled} handleChangeInput={handleChangeInput}></SaveButton>
