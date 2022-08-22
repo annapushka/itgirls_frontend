@@ -7,7 +7,6 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    padding-right: 10%;
     font-size: 1rem;
     &__input{
         @include inputLight;

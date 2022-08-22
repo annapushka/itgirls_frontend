@@ -28,15 +28,22 @@ function App() {
     });
   }, []);
 
+  //search
+  const [saerchTearm, setSearchTerm] = useState('');
+
+  function saerchHandler (e) {
+    setSearchTerm(e.target.value);
+  }
+
   return (
     <Router>
       <div className="App">
         {isLoaded ? (
           <>
-            <Header></Header>
+            <Header saerchHandler={saerchHandler} value={saerchTearm}></Header>
             <Routes>
               <Route exact path='/game' element={<CardSlider words={data} />} />
-              <Route exact path='/' element={<WordList words={data} />} />
+              <Route exact path='/' element={<WordList words={data} saerchTearm={saerchTearm}/>} />
               <Route path="*" element={<NoMatch/>} />
             </Routes>
           </>

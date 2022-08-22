@@ -9,7 +9,10 @@ function WordList(props) {
         <div className="list-box">
             <div className="list">
                 {
-                    cardArray.map((word) =>
+                    cardArray.filter(word => {
+                        if (props.saerchTearm === '') { return word }
+                        else if (word.english.toLowerCase().includes(props.saerchTearm.toLowerCase())) { return word }
+                    }).map((word) =>
                         <WordCard words={cardArray} key={word.id} {...word}></WordCard>
                     )
                 }

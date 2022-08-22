@@ -207,21 +207,11 @@
         }
     }
 
-    .searchButton {
-        margin: 0.5rem 0rem 0.5rem 0rem;
-        padding: 0.4em 0.5em;
-
-        &__img {
-            width: 1.2rem;
-        }
-    }
-
     .searchBox {
         justify-content: flex-end;
         flex-wrap: wrap;
         padding: 0;
-        padding-right: 3%;
-
+    
         &__input {
             max-width: 100px;
             padding: 0.6rem;
@@ -289,20 +279,11 @@
     .searchBox {
         justify-content: flex-end;
         padding: 0;
-        padding-right: 2%;
 
         &__input {
             max-width: 120px;
             padding: 0.65rem;
             margin: 0 0.5rem;
-        }
-    }
-
-    .searchButton {
-        margin: 0.5rem 1rem 0.5rem 0rem;
-
-        &__img {
-            width: 1.4rem;
         }
     }
 
@@ -366,9 +347,6 @@
     }
     .header__nav-text_say{
         display: none;
-    }
-    .searchBox {
-        padding-right: 5%;
     }
 }
 
