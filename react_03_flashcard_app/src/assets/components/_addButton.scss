@@ -12,6 +12,6 @@
     margin-top: 0.5rem;
     &:hover{
         transform: scale(1.05);
-        filter: invert(1) sepia(0) saturate(4) hue-rotate(110deg) brightness(140%) contrast(100%);
+        background-color: black;
     }
 }
