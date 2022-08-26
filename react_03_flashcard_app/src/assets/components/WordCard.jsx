@@ -7,22 +7,10 @@ import SaveButton from "./SaveButton";
 
 function WordCard(props) {
 
-    //focus on check button
-    const ref = createRef();
-    useEffect(() => (ref !== null) ? ref.current.focus() : '', []);
-
     //translation check
     const [pressed, setPressed] = useState(false);
-    const handleChange = () => {
-        setPressed(prevState => !prevState);
-    }
-
     // changing word information
     const [isChanged, setChanged] = useState(false);
-    const handleEdit = () => {
-        setChanged(prevState => !prevState);
-    }
-
     //word information states
     const [data, setData] = useState({
         id: props.id,
@@ -31,17 +19,25 @@ function WordCard(props) {
         russian: props.russian,
         tags: props.tags
     });
-
     const [isVerified, setValid] = useState(true);
+    //will the information about the word be changed
+    const [isChangedInput, setChangedInput] = useState(false);
+    //work with an array of words on change
+    const [cardArray, setCardArray] = useState(props.words);
+
 
     //disabled indicator
     let isDisabled = "";
 
-    //checking the entered new information about the word
-    function isValid(element) {
-        return (element.length > 0) ? true : false;
-    }
 
+    //translation check handler
+    const handleChange = () => {
+        setPressed(prevState => !prevState);
+    }
+    // changing word information handler
+    const handleEdit = () => {
+        setChanged(prevState => !prevState);
+    }
     //word information change handler
     function handleChangeData(e) {
         const name = e.target.name;
@@ -56,31 +52,23 @@ function WordCard(props) {
             setData({ ...data, [name]: info });
         }
     }
-
-    //will the information about the word be changed
-    const [isChangedInput, setChangedInput] = useState(false);
-
     //word general information change handler
     const handleChangeInput = (e) => {
         e.preventDefault();
         if (isVerified) {
-            const modifiedWord = data;
-            alert(JSON.stringify(modifiedWord));
-            setChangedInput(prevState => !prevState);
+            alert(JSON.stringify(data));
+            setChangedInput(true);
             editCard();
         } else {
-            isDisabled = "desabled";
+            isDisabled = "disabled";
             setChanged(prevState => !prevState);
         }
     }
-
     //reset changes
     const handleDeleteChangeInput = () => {
-        setChangedInput(prevState => prevState);
+        setChangedInput(false);
     }
-
     //work with an array of words on change
-    const [cardArray, setCardArray] = useState(props.words);
     const editCard = (editCardId, newEnglish, newTranscription, newRussian, newTags) => {
         setCardArray(prevState =>
             prevState.map(word =>
@@ -90,6 +78,17 @@ function WordCard(props) {
             )
         )
     }
+
+
+    //checking the entered new information about the word
+    function isValid(element) {
+        return (element.length > 0) ? true : false;
+    }
+
+
+    //focus on check button
+    const ref = createRef();
+    useEffect(() => (ref !== null) ? ref.current.focus() : '', []);
 
 
     return (
@@ -104,8 +103,8 @@ function WordCard(props) {
                         <input className='word__input' value={data.tags} name='tags' onChange={handleChangeData} />
                     </div>
                     <div onClick={handleEdit} className="word__control">
-                        <SaveButton desabled={isDisabled} handleChangeInput={handleChangeInput}></SaveButton>
-                        <CancelButton handleDeleteChangeInput={handleDeleteChangeInput}></CancelButton>
+                        <SaveButton disabled={isDisabled} handleChangeInput={handleChangeInput} />
+                        <CancelButton handleDeleteChangeInput={handleDeleteChangeInput} />
                     </div>
                 </>
             ) : (
@@ -118,7 +117,7 @@ function WordCard(props) {
                                 {pressed ? (
                                     <span onClick={handleChange} className="word__russian">{props.russian}</span>
                                 ) : (
-                                    <CheckButton ref={ref} handleChange={handleChange}></CheckButton>
+                                    <CheckButton ref={ref} handleChange={handleChange} />
                                 )}
                                 <span className="word__tags">{props.tags}</span>
                             </>
@@ -129,15 +128,15 @@ function WordCard(props) {
                                 {pressed ? (
                                     <span onClick={handleChange} className="word__russian">***</span>
                                 ) : (
-                                    <CheckButton ref={ref} handleChange={handleChange}></CheckButton>
+                                    <CheckButton ref={ref} handleChange={handleChange} />
                                 )}
                                 <span className="word__tags">***</span>
                             </>
                         )}
                     </div>
                     <div className="word__control">
-                        <EditButton handleEdit={handleEdit}></EditButton>
-                        <DeleteButton></DeleteButton>
+                        <EditButton handleEdit={handleEdit} />
+                        <DeleteButton />
                     </div>
                 </>
             )
