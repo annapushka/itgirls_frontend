@@ -44,7 +44,7 @@ function WordList(props) {
         setNewWord({ ...newWord, [name]: info });
     }
 
-    const handleDeleteChangeInput = () => {
+    const undoHandler = () => {
         setAdding(false);
     }
 
@@ -76,7 +76,7 @@ function WordList(props) {
                                     </div>
                                     <div className="word__control">
                                         <SaveButtonNew add={add} />
-                                        <CancelButton handleDeleteChangeInput={handleDeleteChangeInput} />
+                                        <CancelButton undoHandler={undoHandler} />
                                     </div>
                                 </div>
                             ) : (

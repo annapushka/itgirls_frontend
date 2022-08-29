@@ -65,7 +65,7 @@ function WordCard(props) {
         }
     }
     //word general information change handler
-    function handleChangeInput(e) {
+    function saveNewHandler(e) {
         e.preventDefault();
         if (isVerified) {
             update(data.id);
@@ -75,7 +75,7 @@ function WordCard(props) {
         }
     }
     //reset changes
-    function handleDeleteChangeInput() {
+    function undoHandler() {
         setChangedInput(false);
     }
 
@@ -128,8 +128,8 @@ function WordCard(props) {
                                 <input className={inputClass} value={data.tags} name='tags' onChange={handleChangeData} />
                             </div>
                             <div onClick={handleEdit} className="word__control">
-                                <SaveButton disabled={isDisabled} handleChangeInput={handleChangeInput} />
-                                <CancelButton handleDeleteChangeInput={handleDeleteChangeInput} />
+                                <SaveButton disabled={isDisabled} saveNewHandler={saveNewHandler} />
+                                <CancelButton undoHandler={undoHandler} />
                             </div>
                         </>
                     ) : (
