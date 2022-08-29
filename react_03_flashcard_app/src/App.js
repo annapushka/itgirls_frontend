@@ -1,32 +1,25 @@
-import './App.css';
 import './assets/styles/styles.css'
 import './assets/styles/normalize.css'
 import WordList from './assets/components/WordList';
 import Header from './assets/components/Header';
 import CardSlider from './assets/components/CardSlider';
 import NoMatch from './assets/components/NoMatch';
-import { useState, useEffect } from 'react';
+import Error from './assets/components/Error';
+import { useState, useContext} from 'react';
 import {
   HashRouter as Router,
   Routes,
   Route,
   Link
 } from "react-router-dom";
+import { DataContext } from "../src/assets/components/DataContextProvider";
+import Loading from './assets/components/Loading';
 
 
-function App() {
 
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [data, setData] = useState([]);
+function App(props) {
 
-  useEffect(() => {
-    fetch('http://itgirlschool.justmakeit.ru/api/words')
-    .then((result) => result.json())
-    .then((data) => {
-      setData(data);
-      setIsLoaded(true);
-    });
-  }, []);
+  const { isLoaded, error } = useContext(DataContext);
 
   //search
   const [saerchTearm, setSearchTerm] = useState('');
@@ -36,28 +29,26 @@ function App() {
   }
 
   return (
-    <Router>
-      <div className="App">
-        {isLoaded ? (
-          <>
-            <Header saerchHandler={saerchHandler} value={saerchTearm}></Header>
-            <Routes>
-              <Route exact path='/game' element={<CardSlider words={data} />} />
-              <Route exact path='/' element={<WordList words={data} saerchTearm={saerchTearm}/>} />
-              <Route path="*" element={<NoMatch/>} />
-            </Routes>
-          </>
+      <Router>
+        {error ? (
+          <Error/>
         ) : (
-          <div className='dots-container'>
-            <div className='dot'>A</div>
-            <div className='dot'>
-              <div className='face'></div>
-            </div>
-            <div className='dot'>Z</div>
+          <div className="App">
+          {isLoaded ? (
+            <>
+              <Header saerchHandler={saerchHandler} value={saerchTearm}></Header>
+              <Routes>
+                <Route exact path='/game' element={<CardSlider/>} />
+                <Route exact path='/' element={<WordList saerchTearm={saerchTearm}/>} />
+                <Route path="*" element={<NoMatch/>} />
+              </Routes>
+            </>
+          ) : (
+            <Loading/>
+          )} 
           </div>
-        )} 
-      </div>
-    </Router>
+        )}
+      </Router>
     );
 }
 

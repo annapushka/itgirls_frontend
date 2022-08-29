@@ -1,11 +1,18 @@
-import React, { useState, createRef, useEffect } from 'react';
+import React, { useState, createRef, useEffect, useContext } from 'react';
 import CancelButton from "./CancelButton";
 import CheckButton from './CheckButton';
 import DeleteButton from "./DeleteButton";
 import EditButton from "./EditButton";
 import SaveButton from "./SaveButton";
+import Error from "./Error";
+import { DataContext } from "./DataContextProvider";
+
+let classNames = require('classnames');
 
 function WordCard(props) {
+
+    const { handleDelete, loadData } = useContext(DataContext);
+    const [error, setErorr] = useState('');
 
     //translation check
     const [pressed, setPressed] = useState(false);
@@ -22,8 +29,13 @@ function WordCard(props) {
     const [isVerified, setValid] = useState(true);
     //will the information about the word be changed
     const [isChangedInput, setChangedInput] = useState(false);
-    //work with an array of words on change
-    const [cardArray, setCardArray] = useState(props.words);
+
+
+    //verification indicator
+    let inputClass = classNames({
+        'word__input': true,
+        'notValid': !isVerified,
+    });
 
 
     //disabled indicator
@@ -44,45 +56,54 @@ function WordCard(props) {
         const info = e.target.value;
         if (isValid(info)) {
             setValid(true);
-            e.target.className = 'word__input';
+            // e.target.className = 'word__input';
             setData({ ...data, [name]: info });
         } else {
-            e.target.className = 'word__input notValid';
+            // e.target.className = 'word__input notValid';
             setValid(false);
             setData({ ...data, [name]: info });
         }
     }
     //word general information change handler
-    const handleChangeInput = (e) => {
+    function handleChangeInput(e) {
         e.preventDefault();
         if (isVerified) {
-            alert(JSON.stringify(data));
-            setChangedInput(true);
-            editCard();
+            update(data.id);
         } else {
             isDisabled = "disabled";
             setChanged(prevState => !prevState);
         }
     }
     //reset changes
-    const handleDeleteChangeInput = () => {
+    function handleDeleteChangeInput() {
         setChangedInput(false);
-    }
-    //work with an array of words on change
-    const editCard = (editCardId, newEnglish, newTranscription, newRussian, newTags) => {
-        setCardArray(prevState =>
-            prevState.map(word =>
-                word.id === editCardId
-                    ? { ...word, english: newEnglish, transcription: newTranscription, russian: newRussian, tags: newTags }
-                    : word
-            )
-        )
     }
 
 
     //checking the entered new information about the word
-    function isValid(element) {
-        return (element.length > 0) ? true : false;
+    function isValid(element) { return (element.length > 0) ? true : false }
+
+
+    function update(id) {
+        fetch(`/api/words/${id}/update`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify(data)
+        })
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Something went wrong ...');
+                }
+            })
+            .then(() => loadData())
+            .catch(error => {
+                setErorr(error);
+            });
+        setChanged(true);
     }
 
 
@@ -92,26 +113,28 @@ function WordCard(props) {
 
 
     return (
-        <div className="word" >
-            {isChanged ? (
-                <>
-                    {!isVerified && <div className="error">Please fill in all fields correctly...</div>}
-                    <div className="word__data" id={props.id}>
-                        <input className='word__input' value={data.english} name='english' onChange={handleChangeData} />
-                        <input className='word__input' value={data.transcription} name='transcription' onChange={handleChangeData} />
-                        <input className='word__input' value={data.russian} name='russian' onChange={handleChangeData} />
-                        <input className='word__input' value={data.tags} name='tags' onChange={handleChangeData} />
-                    </div>
-                    <div onClick={handleEdit} className="word__control">
-                        <SaveButton disabled={isDisabled} handleChangeInput={handleChangeInput} />
-                        <CancelButton handleDeleteChangeInput={handleDeleteChangeInput} />
-                    </div>
-                </>
+        <>
+            {error ? (
+                <Error />
             ) : (
-                <>
-                    <div className="word__data">
-                        {!isChangedInput ? (
-                            <>
+                <div className="word" >
+                    {isChanged ? (
+                        <>
+                            {!isVerified && <div className="verificationError">Please fill in all fields correctly...</div>}
+                            <div className="word__data" id={props.id}>
+                                <input className={inputClass} value={data.english} name='english' onChange={handleChangeData} />
+                                <input className={inputClass} value={data.transcription} name='transcription' onChange={handleChangeData} />
+                                <input className={inputClass} value={data.russian} name='russian' onChange={handleChangeData} />
+                                <input className={inputClass} value={data.tags} name='tags' onChange={handleChangeData} />
+                            </div>
+                            <div onClick={handleEdit} className="word__control">
+                                <SaveButton disabled={isDisabled} handleChangeInput={handleChangeInput} />
+                                <CancelButton handleDeleteChangeInput={handleDeleteChangeInput} />
+                            </div>
+                        </>
+                    ) : (
+                        <>
+                            <div className="word__data">
                                 <span className="word__text">{props.english}</span>
                                 <span className="word__transcription">{props.transcription}</span>
                                 {pressed ? (
@@ -120,28 +143,17 @@ function WordCard(props) {
                                     <CheckButton ref={ref} handleChange={handleChange} />
                                 )}
                                 <span className="word__tags">{props.tags}</span>
-                            </>
-                        ) : (
-                            <>
-                                <span className="word__text">***</span>
-                                <span className="word__transcription">***</span>
-                                {pressed ? (
-                                    <span onClick={handleChange} className="word__russian">***</span>
-                                ) : (
-                                    <CheckButton ref={ref} handleChange={handleChange} />
-                                )}
-                                <span className="word__tags">***</span>
-                            </>
-                        )}
-                    </div>
-                    <div className="word__control">
-                        <EditButton handleEdit={handleEdit} />
-                        <DeleteButton />
-                    </div>
-                </>
-            )
-            }
-        </div >
+                            </div>
+                            <div className="word__control">
+                                <EditButton handleEdit={handleEdit} />
+                                <DeleteButton handleDelete={handleDelete} id={props.id} />
+                            </div>
+                        </>
+                    )
+                    }
+                </div >
+            )}
+        </>
     );
 }
 

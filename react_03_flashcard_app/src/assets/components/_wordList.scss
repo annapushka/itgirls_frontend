@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    align-content: center;
+    align-items: center;
     gap: 1rem;
     .list__control{
         opacity: 0.8;
@@ -11,3 +11,6 @@
     }
 }
 
+._new {
+    background-color: $backPink;
+}
