@@ -1,6 +1,6 @@
-function AddButton() {
+function AddButton(props) {
     return (
-        <button className="addButton">Add</button>
+        <button className="addButton" onClick={props.handleAdd}>Add</button>
     );
 }
 
