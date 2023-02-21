@@ -249,6 +249,14 @@
 
 // 5. Выведите столбец чисел от 1 до 50 с помощью цикла.
 
+    function printLoop (start: number, end: number): void {
+        for(let i: number = start; i <= end; i++) {
+            console.log(i); 
+        }
+    }
+
+    printLoop(1, 50)
+
 
 // 6. Дан массив с элементами [2, 3, 4, 5]. С помощью цикла for выведите все числа в столбец вместе с текстом ‘Результат: ’.
 
