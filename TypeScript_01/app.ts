@@ -260,15 +260,23 @@
 
 // 6. Дан массив с элементами [2, 3, 4, 5]. С помощью цикла for выведите все числа в столбец вместе с текстом ‘Результат: ’.
 
+    function printResults (results: number[]): void {
+        results.forEach(result => console.log(`Результат: ${result}`));
+    }
 
+    printResults([2, 3, 4, 5])
+    
 // 7. У нас есть объект
-// ```jsx
-// let obj = {
-// 	'кот': 'мяу',
-// 	'собака': 'гав',
-// 	'корова': 'муу',
-// };
-// ```
-// С помощью цикла for-in выведите на экран строки такого формата: 'кот говорит мяу'.
+    let obj = {
+        'кот': 'мяу',
+        'собака': 'гав',
+        'корова': 'муу',
+    };
+// выведите на экран строки такого формата: 'кот говорит мяу'.
+    
+    function printVoice (animals: Object): void {
+        Object.entries(animals).forEach(([animal, voice]) => console.log(`${animal} говорит ${voice}`));
+    }
 
-})();
+    printVoice(obj)
+    })();
