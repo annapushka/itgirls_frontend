@@ -142,27 +142,110 @@
 
 // 1. Если переменная a  равна нулю или равна двум, то прибавьте к ней 7, иначе поделите её на 10.
 // Выведите новое значение переменной на экран. Проверьте работу скрипта при a, равном 5, 0, -3, 2.
-// Выполните задание с помощью логических операторов.
 
+    function doManipulations (a: number): void {
+        if(a === 0 || a === 2) {
+            a += 7
+        }
+        else {
+            a /= 10
+        }
+        console.log(a)
+    }
+    doManipulations(5)
+    doManipulations(0)
+    doManipulations(-3)
+    doManipulations(2)
 
 // 2. Если переменная a равна нулю, то выведите в консоль 'Верно', иначе выведите 'Неверно'.
-// Проверьте работу скрипта при трёх разных значениях a. Выполните задание с помощью логических операторов и с помощью if.
+// Проверьте работу скрипта при трёх разных значениях a.
 
+    function isRight (a: number): void {
+    a === 0 ? console.log('Верно') : console.log('Неверно')
+    }
+    isRight(5)
+    isRight(0)
+    isRight(-3)
 
 // 3. Переменная lang может принимать 2 значения: 'ru' 'en'. Если она имеет значение 'ru', то в переменную arr 
 // запишем массив дней недели на русском языке, а если имеет значение 'en', то на английском. Решите задачу через if и 
 // через switch-case.
 
+    function localizeWeek (lang: string): string[] {
+    const arr = []
+    
+    lang === 'ru' 
+    ? arr.push('Понедельник' , 'Вторник' , 'Среда' , 'Четверг' , 'Пятница' , 'Суббота' , 'Воскресенье') 
+    : arr.push('Monday' , 'Tuesday' , 'Wednesday' , 'Thursday' , 'Friday' , 'Saturday' , 'Sunday')
+
+    return arr
+    }
+
+    console.log(localizeWeek('ru'))
+    console.log(localizeWeek('en'))
+
+    function localizeWeekSwitch (lang: string): string[] {
+        const arr = []
+        switch(lang) { 
+            case 'ru': { 
+                arr.push('Понедельник' , 'Вторник' , 'Среда' , 'Четверг' , 'Пятница' , 'Суббота' , 'Воскресенье')
+                break; 
+            } 
+            case 'en': { 
+                arr.push('Monday' , 'Tuesday' , 'Wednesday' , 'Thursday' , 'Friday' , 'Saturday' , 'Sunday')
+                break; 
+            } 
+            default: { 
+                alert('Language not found');
+                break; 
+            } 
+        } 
+        return arr
+    }
+
+    console.log(localizeWeekSwitch('ru'))
+    console.log(localizeWeekSwitch('en'))
+    console.log(localizeWeekSwitch('az'))
 
 // 4. С помощью логических ветвлений рассчитайте, какую сумму работник должен перечислить на налог и какую сумму он
 //  получит на руки, если налоги начисляются таким образом:
-// ```jsx
 // Зарплата до 6000 включительно — 10%;
 // Зарплата до 10 000 включительно — 15%;
 // Зарплата до 15 000 включительно — 17.5%;
 // Зарплата свыше 15 000 — 20%.
-// ```
 
+    type Salary = {
+        netSalary: number;
+        tax: number;
+    }
+
+    function calculateNetSalaryAndTax (salary: number, coefficient: number): Salary {
+        const netSalaryAndTax = {netSalary: 0, tax: 0}
+        netSalaryAndTax.tax = salary*coefficient;
+        netSalaryAndTax.netSalary = salary - netSalaryAndTax.tax
+
+        return netSalaryAndTax;
+    }
+
+    function getNetSalaryAndTax (salary: number): Salary {
+        if(salary <= 6000) {
+            return calculateNetSalaryAndTax(salary, 0.1)
+        }
+        else if(salary <= 10000) {
+            return calculateNetSalaryAndTax(salary, 0.15)
+        }
+        else if(salary <= 15000) {
+            return calculateNetSalaryAndTax(salary, 0.175)
+        }
+        else {
+            return calculateNetSalaryAndTax(salary, 0.2)
+        }
+    }
+
+    console.log(getNetSalaryAndTax(5000))
+    console.log(getNetSalaryAndTax(7000))
+    console.log(getNetSalaryAndTax(12000))
+    console.log(getNetSalaryAndTax(16000))
 
 // 5. Выведите столбец чисел от 1 до 50 с помощью цикла.
 
