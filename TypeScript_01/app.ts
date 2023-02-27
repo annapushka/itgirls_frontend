@@ -140,14 +140,13 @@
         return theArgs.map((element) => multiplier * element);
     }
 
-// 1. Если переменная a  равна нулю или равна двум, то прибавьте к ней 7, иначе поделите её на 10.
-// Выведите новое значение переменной на экран. Проверьте работу скрипта при a, равном 5, 0, -3, 2.
+    // 1. Если переменная a  равна нулю или равна двум, то прибавьте к ней 7, иначе поделите её на 10.
+    // Выведите новое значение переменной на экран. Проверьте работу скрипта при a, равном 5, 0, -3, 2.
 
-    function doManipulations (a: number): void {
-        if(a === 0 || a === 2) {
+    function doManipulations(a: number): void {
+        if (a === 0 || a === 2) {
             a += 7
-        }
-        else {
+        } else {
             a /= 10
         }
         console.log(a)
@@ -157,49 +156,49 @@
     doManipulations(-3)
     doManipulations(2)
 
-// 2. Если переменная a равна нулю, то выведите в консоль 'Верно', иначе выведите 'Неверно'.
-// Проверьте работу скрипта при трёх разных значениях a.
+    // 2. Если переменная a равна нулю, то выведите в консоль 'Верно', иначе выведите 'Неверно'.
+    // Проверьте работу скрипта при трёх разных значениях a.
 
-    function isRight (a: number): void {
-    a === 0 ? console.log('Верно') : console.log('Неверно')
+    function isRight(a: number): void {
+        a === 0 ? console.log('Верно') : console.log('Неверно')
     }
     isRight(5)
     isRight(0)
     isRight(-3)
 
-// 3. Переменная lang может принимать 2 значения: 'ru' 'en'. Если она имеет значение 'ru', то в переменную arr 
-// запишем массив дней недели на русском языке, а если имеет значение 'en', то на английском. Решите задачу через if и 
-// через switch-case.
+    // 3. Переменная lang может принимать 2 значения: 'ru' 'en'. Если она имеет значение 'ru', то в переменную arr 
+    // запишем массив дней недели на русском языке, а если имеет значение 'en', то на английском. Решите задачу через if и 
+    // через switch-case.
 
-    function localizeWeek (lang: string): string[] {
-    const arr = []
-    
-    lang === 'ru' 
-    ? arr.push('Понедельник' , 'Вторник' , 'Среда' , 'Четверг' , 'Пятница' , 'Суббота' , 'Воскресенье') 
-    : arr.push('Monday' , 'Tuesday' , 'Wednesday' , 'Thursday' , 'Friday' , 'Saturday' , 'Sunday')
+    function localizeWeek(lang: string): string[] {
+        const arr: string[] = []
 
-    return arr
+        lang === 'ru' ?
+            arr.push('Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье') :
+            arr.push('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday')
+
+        return arr
     }
 
     console.log(localizeWeek('ru'))
     console.log(localizeWeek('en'))
 
-    function localizeWeekSwitch (lang: string): string[] {
-        const arr = []
-        switch(lang) { 
-            case 'ru': { 
-                arr.push('Понедельник' , 'Вторник' , 'Среда' , 'Четверг' , 'Пятница' , 'Суббота' , 'Воскресенье')
-                break; 
-            } 
-            case 'en': { 
-                arr.push('Monday' , 'Tuesday' , 'Wednesday' , 'Thursday' , 'Friday' , 'Saturday' , 'Sunday')
-                break; 
-            } 
-            default: { 
+    function localizeWeekSwitch(lang: string): string[] {
+        const arr: string[] = []
+        switch (lang) {
+            case 'ru': {
+                arr.push('Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье')
+                break;
+            }
+            case 'en': {
+                arr.push('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday')
+                break;
+            }
+            default: {
                 alert('Language not found');
-                break; 
-            } 
-        } 
+                break;
+            }
+        }
         return arr
     }
 
@@ -207,37 +206,37 @@
     console.log(localizeWeekSwitch('en'))
     console.log(localizeWeekSwitch('az'))
 
-// 4. С помощью логических ветвлений рассчитайте, какую сумму работник должен перечислить на налог и какую сумму он
-//  получит на руки, если налоги начисляются таким образом:
-// Зарплата до 6000 включительно — 10%;
-// Зарплата до 10 000 включительно — 15%;
-// Зарплата до 15 000 включительно — 17.5%;
-// Зарплата свыше 15 000 — 20%.
+    // 4. С помощью логических ветвлений рассчитайте, какую сумму работник должен перечислить на налог и какую сумму он
+    //  получит на руки, если налоги начисляются таким образом:
+    // Зарплата до 6000 включительно — 10%;
+    // Зарплата до 10 000 включительно — 15%;
+    // Зарплата до 15 000 включительно — 17.5%;
+    // Зарплата свыше 15 000 — 20%.
 
     type Salary = {
         netSalary: number;
         tax: number;
     }
 
-    function calculateNetSalaryAndTax (salary: number, coefficient: number): Salary {
-        const netSalaryAndTax = {netSalary: 0, tax: 0}
-        netSalaryAndTax.tax = salary*coefficient;
+    function calculateNetSalaryAndTax(salary: number, coefficient: number): Salary {
+        const netSalaryAndTax = {
+            netSalary: 0,
+            tax: 0
+        }
+        netSalaryAndTax.tax = salary * coefficient;
         netSalaryAndTax.netSalary = salary - netSalaryAndTax.tax
 
         return netSalaryAndTax;
     }
 
-    function getNetSalaryAndTax (salary: number): Salary {
-        if(salary <= 6000) {
+    function getNetSalaryAndTax(salary: number): Salary {
+        if (salary <= 6000) {
             return calculateNetSalaryAndTax(salary, 0.1)
-        }
-        else if(salary <= 10000) {
+        } else if (salary <= 10000) {
             return calculateNetSalaryAndTax(salary, 0.15)
-        }
-        else if(salary <= 15000) {
+        } else if (salary <= 15000) {
             return calculateNetSalaryAndTax(salary, 0.175)
-        }
-        else {
+        } else {
             return calculateNetSalaryAndTax(salary, 0.2)
         }
     }
@@ -247,36 +246,62 @@
     console.log(getNetSalaryAndTax(12000))
     console.log(getNetSalaryAndTax(16000))
 
-// 5. Выведите столбец чисел от 1 до 50 с помощью цикла.
+    // 5. Выведите столбец чисел от 1 до 50 с помощью цикла.
 
-    function printLoop (start: number, end: number): void {
-        for(let i: number = start; i <= end; i++) {
-            console.log(i); 
+    function printLoop(start: number, end: number): void {
+        for (let i: number = start; i <= end; i++) {
+            console.log(i);
         }
     }
 
     printLoop(1, 50)
 
 
-// 6. Дан массив с элементами [2, 3, 4, 5]. С помощью цикла for выведите все числа в столбец вместе с текстом ‘Результат: ’.
+    // 6. Дан массив с элементами [2, 3, 4, 5]. С помощью цикла for выведите все числа в столбец вместе с текстом ‘Результат: ’.
 
-    function printResults (results: number[]): void {
+    function printResults(results: number[]): void {
         results.forEach(result => console.log(`Результат: ${result}`));
     }
 
     printResults([2, 3, 4, 5])
-    
-// 7. У нас есть объект
+
+    // 7. У нас есть объект
     let obj = {
         'кот': 'мяу',
         'собака': 'гав',
         'корова': 'муу',
     };
-// выведите на экран строки такого формата: 'кот говорит мяу'.
-    
-    function printVoice (animals: Object): void {
+    // выведите на экран строки такого формата: 'кот говорит мяу'.
+
+    function printVoice(animals: Object): void {
         Object.entries(animals).forEach(([animal, voice]) => console.log(`${animal} говорит ${voice}`));
     }
 
     printVoice(obj)
-    })();
+
+
+// 1.	Создайте класс Person, который содержит переменные name, age, isStudent.
+
+
+// 2.	Создайте три экземпляра класса Person.
+
+
+// 3.	Создайте внутри класса метод, который будут выводить в консоль значения переменных и с 
+// его помощью выведите в консоль значения созданных выше экземпляров класса.
+
+
+// 4.	Создайте пример наследования через абстрактный класс и через интерфейс, реализуйте класс 
+// Student и класс Aspirant, аспирант отличается от студента наличием некой научной работы.
+
+
+// 5.	Создайте метод getScholarship() для класса Student, который возвращает сумму стипендии.
+// Если средняя оценка студента равна 5, то сумма 200, иначе 150. Переопределить этот метод в классе Aspirant. 
+// Если средняя оценка аспиранта равна 5, то сумма 300 грн, иначе 250.
+
+
+// 6.	Создайте классы для описания интернет-магазина. У него должны быть несколько категорий товаров 
+// (с названием и ценой), покупатели (которые для покупки должны зарегистрироваться, соответственно у покупателя 
+// будет пароль, логин и история покупок), корзина. Также должны быть методы: добавить в корзину, купить, 
+// зарегистрироваться, войти в аккаунт.
+
+})();
