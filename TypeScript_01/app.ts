@@ -282,13 +282,33 @@
 
 // 1.	Создайте класс Person, который содержит переменные name, age, isStudent.
 
+class Person {
+    name: string
+    age: number
+    isStudent: boolean
+  
+    constructor(  name: string, age: number, isStudent: boolean) {
+      this.name = name;
+      this.age = age;
+      this.isStudent = isStudent;
+    }
+    printPersonInfo(): void {
+        console.log(`name: ${this.name}; age: ${this.age}; isStudent: ${this.isStudent}`); 
+    }
+  }
 
 // 2.	Создайте три экземпляра класса Person.
 
+    const vasya = new Person('Vasya', 19, true)
+    const tosha = new Person('Tosha', 9, false)
+    const sonya = new Person('Sonya', 21, true)
 
 // 3.	Создайте внутри класса метод, который будут выводить в консоль значения переменных и с 
 // его помощью выведите в консоль значения созданных выше экземпляров класса.
 
+    vasya.printPersonInfo()
+    tosha.printPersonInfo()
+    sonya.printPersonInfo()
 
 // 4.	Создайте пример наследования через абстрактный класс и через интерфейс, реализуйте класс 
 // Student и класс Aspirant, аспирант отличается от студента наличием некой научной работы.
