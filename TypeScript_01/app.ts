@@ -280,48 +280,71 @@
     printVoice(obj)
 
 
-// 1.	Создайте класс Person, который содержит переменные name, age, isStudent.
+    // 1.	Создайте класс Person, который содержит переменные name, age, isStudent.
 
-class Person {
-    name: string
-    age: number
-    isStudent: boolean
-  
-    constructor(  name: string, age: number, isStudent: boolean) {
-      this.name = name;
-      this.age = age;
-      this.isStudent = isStudent;
-    }
-    printPersonInfo(): void {
-        console.log(`name: ${this.name}; age: ${this.age}; isStudent: ${this.isStudent}`); 
-    }
-  }
+    class Person {
+        name: string
+        age: number
+        isStudent: boolean
 
-// 2.	Создайте три экземпляра класса Person.
+        constructor(name: string, age: number, isStudent: boolean) {
+            this.name = name;
+            this.age = age;
+            this.isStudent = isStudent;
+        }
+        printPersonInfo(): void {
+            console.log(`name: ${this.name}; age: ${this.age}; isStudent: ${this.isStudent}`);
+        }
+    }
+
+    // 2.	Создайте три экземпляра класса Person.
 
     const vasya = new Person('Vasya', 19, true)
     const tosha = new Person('Tosha', 9, false)
     const sonya = new Person('Sonya', 21, true)
 
-// 3.	Создайте внутри класса метод, который будут выводить в консоль значения переменных и с 
-// его помощью выведите в консоль значения созданных выше экземпляров класса.
+    // 3.	Создайте внутри класса метод, который будут выводить в консоль значения переменных и с 
+    // его помощью выведите в консоль значения созданных выше экземпляров класса.
 
     vasya.printPersonInfo()
     tosha.printPersonInfo()
     sonya.printPersonInfo()
 
-// 4.	Создайте пример наследования через абстрактный класс и через интерфейс, реализуйте класс 
-// Student и класс Aspirant, аспирант отличается от студента наличием некой научной работы.
+    // 4.	Создайте пример наследования через абстрактный класс и через интерфейс, реализуйте класс 
+    // Student и класс Aspirant, аспирант отличается от студента наличием некой научной работы.
+    // 5.	Создайте метод getScholarship() для класса Student, который возвращает сумму стипендии.
+    // Если средняя оценка студента равна 5, то сумма 200, иначе 150. Переопределить этот метод в классе Aspirant. 
+    // Если средняя оценка аспиранта равна 5, то сумма 300 грн, иначе 250.
+
+    abstract class Student {
+        constructor(name: string, lastName: string, institute: string, faculty: string, entryYear: number) {}
+    }
+
+    class Aspirant extends Student {
+        titleResearchPaper: string
+
+        constructor(name: string, lastName: string, institute: string, faculty: string, entryYear: number, titleResearchPaper: string) {
+            super(name, lastName, institute, faculty, entryYear)
+            this.titleResearchPaper = titleResearchPaper
+        }
+    }
+
+    interface Student {
+        name: string, 
+        lastName: string, 
+        institute: string, 
+        faculty: string, 
+        entryYear: number
+    }
+
+    interface Aspirant extends Student {
+        titleResearchPaper: string
+    }
 
 
-// 5.	Создайте метод getScholarship() для класса Student, который возвращает сумму стипендии.
-// Если средняя оценка студента равна 5, то сумма 200, иначе 150. Переопределить этот метод в классе Aspirant. 
-// Если средняя оценка аспиранта равна 5, то сумма 300 грн, иначе 250.
-
-
-// 6.	Создайте классы для описания интернет-магазина. У него должны быть несколько категорий товаров 
-// (с названием и ценой), покупатели (которые для покупки должны зарегистрироваться, соответственно у покупателя 
-// будет пароль, логин и история покупок), корзина. Также должны быть методы: добавить в корзину, купить, 
-// зарегистрироваться, войти в аккаунт.
+    // 6.	Создайте классы для описания интернет-магазина. У него должны быть несколько категорий товаров 
+    // (с названием и ценой), покупатели (которые для покупки должны зарегистрироваться, соответственно у покупателя 
+    // будет пароль, логин и история покупок), корзина. Также должны быть методы: добавить в корзину, купить, 
+    // зарегистрироваться, войти в аккаунт.
 
 })();
