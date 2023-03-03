@@ -312,14 +312,10 @@
 
     // 4.	Создайте пример наследования через абстрактный класс и через интерфейс, реализуйте класс 
     // Student и класс Aspirant, аспирант отличается от студента наличием некой научной работы.
-    // 5.	Создайте метод getScholarship() для класса Student, который возвращает сумму стипендии.
-    // Если средняя оценка студента равна 5, то сумма 200, иначе 150. Переопределить этот метод в классе Aspirant. 
-    // Если средняя оценка аспиранта равна 5, то сумма 300 грн, иначе 250.
 
     abstract class Student {
         constructor(name: string, lastName: string, institute: string, faculty: string, entryYear: number) {}
     }
-
     class Aspirant extends Student {
         titleResearchPaper: string
 
@@ -328,23 +324,121 @@
             this.titleResearchPaper = titleResearchPaper
         }
     }
-
-    interface Student {
+    interface StudentInterface {
         name: string, 
         lastName: string, 
         institute: string, 
         faculty: string, 
         entryYear: number
     }
-
-    interface Aspirant extends Student {
+    class AspirantInterface implements StudentInterface {
+        name: string;
+        lastName: string;
+        institute: string;
+        faculty: string;
+        entryYear: number;
         titleResearchPaper: string
     }
 
+
+     // 5.	Создайте метод getScholarship() для класса Student, который возвращает сумму стипендии.
+    // Если средняя оценка студента равна 5, то сумма 200, иначе 150. Переопределить этот метод в классе Aspirant. 
+    // Если средняя оценка аспиранта равна 5, то сумма 300 грн, иначе 250.
+
+    class StudentFunc {
+        avgMark: number
+
+        constructor(avgMark: number) {
+            this.avgMark = avgMark
+        }
+        getScholarship(): number {
+            return this.avgMark === 5 ? 200 : 150
+        }
+    }
+
+    class AspirantFunc extends StudentFunc {
+
+        constructor(avgMark: number) {
+            super(avgMark)
+        }
+        getScholarship(): number {
+            return this.avgMark === 5 ? 300 : 250
+        }
+    }
 
     // 6.	Создайте классы для описания интернет-магазина. У него должны быть несколько категорий товаров 
     // (с названием и ценой), покупатели (которые для покупки должны зарегистрироваться, соответственно у покупателя 
     // будет пароль, логин и история покупок), корзина. Также должны быть методы: добавить в корзину, купить, 
     // зарегистрироваться, войти в аккаунт.
+
+    class Product {
+        name: string;
+        price: number;
+        manufacturer: string;
+
+        constructor(name: string, price: number, manufacturer: string) {
+            this.name = name;
+            this.price = price;
+            this.manufacturer = manufacturer;
+        }
+    }
+
+    class Foodstuffs extends Product {
+        expirationDate: Date;
+
+        constructor(name: string, price: number, manufacturer: string, expirationDate: Date) {
+            super(name, price, manufacturer)
+            this.expirationDate = expirationDate
+        }    
+    }
+
+    class ChildensGoods extends Product {
+        ageСategory: number;
+
+        constructor(name: string, price: number, manufacturer: string, ageСategory: number) {
+            super(name, price, manufacturer)
+            this.ageСategory = ageСategory
+        }    
+    }
+
+    
+
+    interface Item {
+        idProduct: string
+    }
+
+    interface Purchase extends Item{
+        purchaseDate: Date
+    }
+
+    class Customer {
+        name: string;
+        login: string;
+        password: string;
+        purchaseHistory: Purchase[];
+        backet: Item[];
+
+        constructor(name: string, login: string, password: string,  purchaseHistory: Purchase[], backet: Item[]) {
+            this.name = name;
+            this.login = login;
+            this.password = password;
+            this.purchaseHistory = purchaseHistory;
+            this.backet = this.backet;
+        }
+
+        checkIn(): void {
+             //...
+        }
+        logIn(): void {
+             //...
+        }
+        addToBasket(item: Item): void {
+            this.backet.push(item)
+        }
+        buy(): void {
+            //...
+            this.backet.length = 0
+        }
+    }
 
 })();
