@@ -312,43 +312,20 @@
 
     // 4.	Создайте пример наследования через абстрактный класс и через интерфейс, реализуйте класс 
     // Student и класс Aspirant, аспирант отличается от студента наличием некой научной работы.
-
-    abstract class Student {
-        constructor(name: string, lastName: string, institute: string, faculty: string, entryYear: number) {}
-    }
-    class Aspirant extends Student {
-        titleResearchPaper: string
-
-        constructor(name: string, lastName: string, institute: string, faculty: string, entryYear: number, titleResearchPaper: string) {
-            super(name, lastName, institute, faculty, entryYear)
-            this.titleResearchPaper = titleResearchPaper
-        }
-    }
-    interface StudentInterface {
-        name: string, 
-        lastName: string, 
-        institute: string, 
-        faculty: string, 
-        entryYear: number
-    }
-    class AspirantInterface implements StudentInterface {
-        name: string;
-        lastName: string;
-        institute: string;
-        faculty: string;
-        entryYear: number;
-        titleResearchPaper: string
-    }
-
-
-     // 5.	Создайте метод getScholarship() для класса Student, который возвращает сумму стипендии.
+    // 5.	Создайте метод getScholarship() для класса Student, который возвращает сумму стипендии.
     // Если средняя оценка студента равна 5, то сумма 200, иначе 150. Переопределить этот метод в классе Aspirant. 
-    // Если средняя оценка аспиранта равна 5, то сумма 300 грн, иначе 250.
+    // Если средняя оценка аспиранта равна 5, то сумма 300, иначе 250.
 
-    class StudentFunc {
+    abstract class Pupil {
+        constructor(name: string, lastName: string, institute: string, faculty: string, entryYear: number, avgMark: number) {}
+        abstract getScholarship(): number;
+    }
+
+    class Student extends Pupil {
         avgMark: number
-
-        constructor(avgMark: number) {
+        constructor(name: string, lastName: string, institute: string,
+            faculty: string, entryYear: number, avgMark: number) {
+            super(name, lastName, institute, faculty, entryYear, avgMark)
             this.avgMark = avgMark
         }
         getScholarship(): number {
@@ -356,15 +333,77 @@
         }
     }
 
-    class AspirantFunc extends StudentFunc {
+    class Aspirant extends Pupil {
+        titleResearchPaper: string
+        avgMark: number
 
-        constructor(avgMark: number) {
-            super(avgMark)
+        constructor(name: string, lastName: string, institute: string,
+            faculty: string, entryYear: number, titleResearchPaper: string, avgMark: number) {
+            super(name, lastName, institute, faculty, entryYear, avgMark)
+            this.titleResearchPaper = titleResearchPaper
+            this.avgMark = avgMark
         }
         getScholarship(): number {
             return this.avgMark === 5 ? 300 : 250
         }
     }
+
+
+    interface PupilI {
+        name: string,
+            lastName: string,
+            institute: string,
+            faculty: string,
+            entryYear: number,
+            avgMark: number,
+            getScholarship(): number
+    }
+
+    class StudentI implements PupilI {
+        name: string;
+        lastName: string;
+        institute: string;
+        faculty: string;
+        entryYear: number;
+        avgMark: number;
+        constructor(name: string, lastName: string, institute: string,
+            faculty: string, entryYear: number, avgMark: number) {
+            this.name = name
+            this.lastName = lastName
+            this.institute = institute
+            this.faculty = faculty
+            this.entryYear = entryYear
+            this.avgMark = avgMark
+        }
+        getScholarship(): number {
+            return this.avgMark === 5 ? 200 : 150
+        }
+    }
+
+    class AspirantI implements PupilI {
+        titleResearchPaper: string;
+        name: string;
+        lastName: string;
+        institute: string;
+        faculty: string;
+        entryYear: number;
+        avgMark: number;
+
+        constructor(name: string, lastName: string, institute: string,
+            faculty: string, entryYear: number, titleResearchPaper: string, avgMark: number) {
+            this.titleResearchPaper = titleResearchPaper
+            this.name = name
+            this.lastName = lastName
+            this.institute = institute
+            this.faculty = faculty
+            this.entryYear = entryYear
+            this.avgMark = avgMark
+        }
+        getScholarship(): number {
+            return this.avgMark === 5 ? 300 : 250
+        }
+    }
+
 
     // 6.	Создайте классы для описания интернет-магазина. У него должны быть несколько категорий товаров 
     // (с названием и ценой), покупатели (которые для покупки должны зарегистрироваться, соответственно у покупателя 
@@ -389,7 +428,7 @@
         constructor(name: string, price: number, manufacturer: string, expirationDate: Date) {
             super(name, price, manufacturer)
             this.expirationDate = expirationDate
-        }    
+        }
     }
 
     class ChildensGoods extends Product {
@@ -398,16 +437,16 @@
         constructor(name: string, price: number, manufacturer: string, ageСategory: number) {
             super(name, price, manufacturer)
             this.ageСategory = ageСategory
-        }    
+        }
     }
 
-    
+
 
     interface Item {
         idProduct: string
     }
 
-    interface Purchase extends Item{
+    interface Purchase extends Item {
         purchaseDate: Date
     }
 
@@ -418,7 +457,7 @@
         purchaseHistory: Purchase[];
         backet: Item[];
 
-        constructor(name: string, login: string, password: string,  purchaseHistory: Purchase[], backet: Item[]) {
+        constructor(name: string, login: string, password: string, purchaseHistory: Purchase[], backet: Item[]) {
             this.name = name;
             this.login = login;
             this.password = password;
@@ -427,10 +466,10 @@
         }
 
         checkIn(): void {
-             //...
+            //...
         }
         logIn(): void {
-             //...
+            //...
         }
         addToBasket(item: Item): void {
             this.backet.push(item)
