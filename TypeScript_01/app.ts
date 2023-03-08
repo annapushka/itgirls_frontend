@@ -29,11 +29,11 @@
 
     // 3.	Создайте 3 enum с данными: fruits, books и cars. На своё усмотрение придумайте, 
     // какие данные каждый из них может содержать, укажите не меньше 3 параметров для каждого.
-    enum Fruits {
-        SIMPLE,
-        AGGREGATE,
-        MULTIPLE
-    };
+    // enum Fruits {
+    //     SIMPLE,
+    //     AGGREGATE,
+    //     MULTIPLE
+    // };
 
     enum Books {
         CLASSICS,
@@ -480,12 +480,75 @@
         }
     }
 
-//     WEEK 5
-// 1.	Написать дженерик функцию с одним параметром и с её помощью вывести в консоль сумму чисел, если параметры типа number и приветствие, если параметры типа string или boolean.
-// 2.	Создать обобщённый класс с тремя параметрами (T, V, K).
-// 3.	Класс содержит три переменные типа (T, V, K), конструктор, принимающий на вход параметры типа (T, V, K), методы, возвращающие значения трёх переменных. Создать метод, выводящий на консоль имена классов для трёх переменных класса.
-// 4.	Создать класс Fruits, Vegetables и функцию, которая будет проверять тип переменной и выводить в консоль разный текст, в зависимости от типа данных.
-// 5.	Создать два обобщённых интерфейса с одним параметром в каждом, создать константу, которая будет наследовать данные от обоих интерфейсов.
+    //     WEEK 5
+    // 1.	Написать дженерик функцию с одним параметром и с её помощью вывести в консоль сумму чисел, если параметры типа number и приветствие, если параметры типа string или boolean.
+
+    function func < T > (arg: T): string | number | undefined {
+        let result;
+        if (typeof arg == 'number') {
+            result = arg + arg;
+        } else if (typeof arg == 'string' || typeof arg == 'boolean') {
+            result = 'Hi!';
+        }
+        return result;
+    }
+
+    // 2.	Создать обобщённый класс с тремя параметрами (T, V, K).
+    // 3.	Класс содержит три переменные типа (T, V, K), конструктор, принимающий на вход параметры типа (T, V, K), методы, возвращающие значения трёх переменных. Создать метод, выводящий на консоль имена классов для трёх переменных класса.
+
+    class GenericClass < T, V, K > {
+        login: T;
+        id: K;
+        isLoggedIn: V;
+        constructor(login: T, id: K, isLoggedIn: V) {
+            this.login = login;
+            this.id = id;
+            this.isLoggedIn = isLoggedIn
+        }
+        getLogin(): T {
+            return this.login
+        }
+        getId(): K {
+            return this.id
+        }
+        getIsLoggedIn(): V {
+            return this.isLoggedIn
+        }
+        printType(): void {
+            console.log(`${typeof this.login}, ${typeof this.id}, ${typeof this.isLoggedIn}`)
+        }
+    }
+    // 4.	Создать класс Fruits, Vegetables и функцию, которая будет проверять тип переменной и выводить в консоль разный текст, в зависимости от типа данных.
+
+    class Fruits {
+        type: string;
+        drinks: string[];
+        constructor(type: string, drinks: string[]) {
+            this.type = type;
+            this.drinks = drinks;
+        }
+    }
+
+    class Vegetables {
+        type: string;
+        dishes: string[];
+        constructor(type: string, dishes: string[]) {
+            this.type = type;
+            this.dishes = dishes;
+        }
+    }
+
+    function printExs(obj: Fruits | Vegetables) {
+        let res: string = '';
+        if (obj instanceof Fruits) {
+            res = `Вы можете приготовить из ${obj.type} следующие напитки ${obj.drinks.join(', ')}`;
+        } else if (obj instanceof Vegetables) {
+            res = `Вы можете приготовить из ${obj.type} следующие блюда ${obj.dishes.join(', ')}`;
+        }
+        return res;
+    }
+
+    // 5.	Создать два обобщённых интерфейса с одним параметром в каждом, создать константу, которая будет наследовать данные от обоих интерфейсов.
 
 
 })();
