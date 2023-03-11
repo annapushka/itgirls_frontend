@@ -549,6 +549,17 @@
     }
 
     // 5.	Создать два обобщённых интерфейса с одним параметром в каждом, создать константу, которая будет наследовать данные от обоих интерфейсов.
+    interface IKey < KeyTypeGeneric > {
+        key: KeyTypeGeneric;
+    }
 
+    interface IResult < ResultTypeGeneric > {
+        result: ResultTypeGeneric;
+    }
+
+    const data: IKey < number > & IResult < string > = {
+        key: 1,
+        result: 'banana'
+    }
 
 })();
