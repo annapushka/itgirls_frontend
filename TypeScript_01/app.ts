@@ -515,7 +515,7 @@
             return this.isLoggedIn
         }
         printType(): void {
-            console.log(`${typeof this.login}, ${typeof this.id}, ${typeof this.isLoggedIn}`)
+            console.log(`login: ${typeof this.login}, id: ${typeof this.id}, isLoggedIn: ${typeof this.isLoggedIn}`)
         }
     }
     // 4.	Создать класс Fruits, Vegetables и функцию, которая будет проверять тип переменной и выводить в консоль разный текст, в зависимости от типа данных.
