@@ -562,4 +562,40 @@
         result: 'banana'
     }
 
+//     WEEK 6
+// 1. Создать класс User и у него декоратор, который будет генерировать id (с помощью встроенной в Typescript функции Random).
+// 2. У класса User должны быть поля:
+// - name: string;
+// - registrationDate: Date;
+// - orderHistory: Array<Order>.
+
+// Необходимо создать декоратор, который сделает невозможным изменение поля `registrationDate`.
+
+// 1. Создать геттер для поля `name` и сеттер для добавления новой позиции в `orderHistory`.
+// 2. Создать класс Order с полями name:string, price: number, создать метод addToShopingCart, который добавляет товары в корзину и содержит декоратор, который выводит в консоль название товара.
+// 3. Создать класс ShopingCart, который содержит список товаров.
+// 4. Каждый класс помещаем в отдельный файл и связываем полученные модули между собой с помощью импорта экспорта.
+
+
+function generateId<T extends {new (...args: any[]): {}}>(target: T) {
+    return class extends target {
+        constructor( ...args: any[] ) {
+            super(...args);
+            return Math.random();
+        }
+    }
+}
+
+@generateId
+class User {
+    name: string;
+    registrationDate: Date;
+    orderHistory: Array<Order>;
+ 
+    constructor(name: string, registrationDate: Date, orderHistory: Array<Order>) {
+        this.name = name;
+        this.registrationDate = registrationDate;
+        this.orderHistory = orderHistory;
+    }
+}
 })();
