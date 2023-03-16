@@ -577,25 +577,46 @@
 // 4. Каждый класс помещаем в отдельный файл и связываем полученные модули между собой с помощью импорта экспорта.
 
 
-function generateId<T extends {new (...args: any[]): {}}>(target: T) {
-    return class extends target {
-        constructor( ...args: any[] ) {
-            super(...args);
-            return Math.random();
+    function generateId<T extends {new (...args: any[]): {}}>(target: T) {
+        return class extends target {
+            constructor( ...args: any[] ) {
+                super(...args);
+                return Math.random();
+            }
         }
     }
-}
 
-@generateId
-class User {
-    name: string;
-    registrationDate: Date;
-    orderHistory: Array<Order>;
- 
-    constructor(name: string, registrationDate: Date, orderHistory: Array<Order>) {
+    class Order {
+      name:string;
+      price: number;
+
+      constructor(name:string, price: number) {
         this.name = name;
-        this.registrationDate = registrationDate;
-        this.orderHistory = orderHistory;
+        this.price = price;
+      }
+      addToShopingCart () {
+
+      }
     }
-}
+
+    class ShopingCart {
+      goodsList: string[];
+
+      constructor(goodsList: string[]) {
+        this.goodsList = goodsList;
+      }
+    }
+
+    @generateId
+    class User {
+        name: string;
+        registrationDate: Date;
+        orderHistory: Array<Order>;
+
+        constructor(name: string, registrationDate: Date, orderHistory: Array<Order>) {
+            this.name = name;
+            this.registrationDate = registrationDate;
+            this.orderHistory = orderHistory;
+        }
+    }
 })();
