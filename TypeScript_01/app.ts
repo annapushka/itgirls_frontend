@@ -578,12 +578,19 @@
 
 
     function generateId<T extends {new (...args: any[]): {}}>(target: T) {
-        return class extends target {
-            constructor( ...args: any[] ) {
-                super(...args);
-                return Math.random();
+    return class extends target {
+        constructor( ...args: any[] ) {
+            super(...args);
+            return Math.random();
             }
         }
+    }
+
+
+    function setPrivate(target: Object, propertyKey: string) {
+      Object.defineProperty(target, propertyKey, {
+        writable: false,
+      });
     }
 
     class Order {
@@ -594,29 +601,39 @@
         this.name = name;
         this.price = price;
       }
-      addToShopingCart () {
-
-      }
     }
 
     class ShopingCart {
-      goodsList: string[];
+      goodsList: Array<Order>;
 
-      constructor(goodsList: string[]) {
+      constructor(goodsList: Array<Order>) {
         this.goodsList = goodsList;
       }
+
+      set addToShopingCart(order: Order) {
+          this.goodsList.push(order)
+        }
     }
 
     @generateId
     class User {
-        name: string;
-        registrationDate: Date;
-        orderHistory: Array<Order>;
+        _name: string;
+        @setPrivate
+        registrationDate: string;
+        _orderHistory: Array<Order>;
 
-        constructor(name: string, registrationDate: Date, orderHistory: Array<Order>) {
-            this.name = name;
+        constructor(name: string, registrationDate: string, orderHistory: Array<Order>) {
+            this._name = name;
             this.registrationDate = registrationDate;
-            this.orderHistory = orderHistory;
+            this._orderHistory = orderHistory;
+        }
+
+        get name(): string {
+            return this._name;
+        }
+
+        set orderHistory(order: Order) {
+          this._orderHistory.push(order)
         }
     }
 })();
