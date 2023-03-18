@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var User_js_1 = require("./classes/User.js");
+var Item_js_1 = require("./classes/Item.js");
+var ShopingCart_js_1 = require("./classes/ShopingCart.js");
+var regDate = new Date('2022-12-17T03:24:00');
+var user = new User_js_1.User('Banana', [], regDate);
+var item = new Item_js_1.Item('Banana', 9);
+var shopingCart = new ShopingCart_js_1.ShopingCart();
+shopingCart.addToShopingCart(item);
+user.registrationDate = new Date('2023');
+console.log(user.registrationDate);
