@@ -12,4 +12,4 @@ const item = new Item('Banana', 9);
 const shopingCart = new ShopingCart()
 shopingCart.addToShopingCart(item)
 user.registrationDate = new Date('2023')
-console.log(user.registrationDate)
+alert(user.registrationDate)
