@@ -575,5 +575,67 @@
 // 2. Создать класс Order с полями name:string, price: number, создать метод addToShopingCart, который добавляет товары в корзину и содержит декоратор, который выводит в консоль название товара.
 // 3. Создать класс ShopingCart, который содержит список товаров.
 // 4. Каждый класс помещаем в отдельный файл и связываем полученные модули между собой с помощью импорта экспорта.
+    
+    // Single responsibility principle (SRP): This principle states that software component (function, class or module) should 
+//focus on one unique tasks (have only one responsibility).
+class Person {
+  public name : string;
+  public email : string;
+  constructor(name : string, email : string) {
+    this.name = name;
+    if(this.validateEmail(email)) {
+      this.email = email;
+    }
+    else {
+      throw new Error("Invalid email!");
+    }
+  }
+  validateEmail(email: string) {
+    return Boolean
+  }
+}
+//Класс Person содержит метод валидации электронной почты, что можно вынести в отдельный класс. 
+//В дальнейшем, можно, правила валидации менять, что не повляет на класс Person.
+class Person {
+public name : string;
+public email : Email;
+constructor(name : string, email : Email){
+   this.email = email;
+   this.name = name;
+}
+}
+
+class Email {
+public email : string;
+constructor(email : string){
+   if(this.validateEmail(email)) {
+     this.email = email;
+   }
+   else {
+     throw new Error("Invalid email!");
+   }      
+}
+validateEmail(email: string) {
+    return Boolean
+  }
+}
+
+// Open/closed principle (OCP): This principle states that software entities should be designed with the 
+//application growth (new code) in mind (be open to extension), but the application growth should require the smaller 
+//amount of changes to the existing code as possible (be closed for modification).
+
+
+// Liskov substitution principle (LSP): This principle states that we should be able to replace a class in a program with another class as long as both classes implement the same interface. After replacing the class no other changes should be required and the program should continue to work as it did originally.
+
+
+// Interface segregation principle (ISP): This principle states that we should split interfaces which are 
+//very large (general-purpose interfaces) into smaller and more specific ones (many client-specific interfaces) 
+//so that clients will only have to know about the methods that are of interest to them.
+
+
+// Dependency inversion principle (DIP): This principle states that entities should depend on abstractions (interfaces) as opposed to depend on concretion (classes).
+
+
+https://hub.packtpub.com/object-oriented-programming-typescript/
 
 })();
