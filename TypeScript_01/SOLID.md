@@ -4,7 +4,7 @@
 This principle states that software component (function, class or module) should 
 focus on one unique tasks (have only one responsibility).
 
-<p><img src="img/S.png" alt="S" width="300px"/></p>
+<p><img src="img/S.png" alt="S" width="500px"/></p>
 
     class Person {
         public name: string;
@@ -53,7 +53,7 @@ This principle states that software entities should be designed with the
 application growth (new code) in mind (be open to extension), but the application growth should require the smaller 
 amount of changes to the existing code as possible (be closed for modification).
 
-<p><img src="/img/O.png" alt="O" width="300px"/></p>
+<p><img src="img/O.png" alt="O" width="500px"/></p>
 
     class GreetingService {
         language: string;
@@ -106,7 +106,7 @@ This principle states that we should be able to replace a class in a program
 with another class as long as both classes implement the same interface. After replacing the class no other changes should 
 be required and the program should continue to work as it did originally.
 
-<p><img src="/img/L.png" alt="L" width="300px"/></p>
+<p><img src="img/L.png" alt="L" width="500px"/></p>
 
 Если предположить, что каждая  Bird может fly — это работает для Duck, но не для Straus — следовательно, 
 это нарушение принципа.
@@ -139,7 +139,7 @@ This principle states that we should split interfaces which are
 very large (general-purpose interfaces) into smaller and more specific ones (many client-specific interfaces) 
 so that clients will only have to know about the methods that are of interest to them.
 
-<p><img src="/img/I.png" alt="I" width="300px"/></p>
+<p><img src="img/I.png" alt="I" width="500px"/></p>
 
     interface IVehicle {
         getSpeed(): number;
@@ -187,7 +187,7 @@ so that clients will only have to know about the methods that are of interest to
 This principle states that entities should depend on abstractions (interfaces) as 
 opposed to depend on concretion (classes).
 
-<p><img src="/img/D.png" alt="D" width="300px"/></p>
+<p><img src="img/D.png" alt="D" width="500px"/></p>
 
 Предположим, что класс Auth должен отправлять уведомление всякий раз, когда пользователь входит в систему. 
 Высокоуровневый класс — это класс аутентификации, а низкоуровневый класс — это класс Alert.
