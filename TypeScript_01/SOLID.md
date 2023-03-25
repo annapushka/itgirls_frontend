@@ -4,7 +4,7 @@
 This principle states that software component (function, class or module) should 
 focus on one unique tasks (have only one responsibility).
 
-<p><img src="/img/S.png" alt="S" width="300px"/></p>
+<p><img src="img/S.png" alt="S" width="300px"/></p>
 
     class Person {
         public name: string;
