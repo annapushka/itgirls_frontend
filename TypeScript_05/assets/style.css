@@ -45,6 +45,17 @@ button {
     padding: 0.75rem 1rem;
 }
 
+button#achievement  {
+    background: #0044ff;
+    border: 1px solid #0044ff;
+}
+
+button#achievement:hover,
+button#achievement:active {
+    background: #0333b8;
+    border-color: #0333b8;
+}
+
 button:focus {
     outline: none;
 }
@@ -55,12 +66,12 @@ button:active {
     border-color: #a80041;
 }
 
-.todos {
+.goals {
     margin: 1rem;
     border: 1px solid #ff0062;
 }
 
-.todos header {
+.goals header {
     background: #ff0062;
     height: 3.5rem;
     display: flex;
@@ -68,41 +79,41 @@ button:active {
     align-items: center;
 }
 
-#finished-todos {
+#achievement {
     border-color: #0044ff;
 }
 
-#finished-todos header {
+#achievement header {
     background: #0044ff;
 }
 
-.todos h2 {
+.goals h2 {
     margin: 0;
     color: white;
 }
 
-.todos ul {
+.goals ul {
     list-style: none;
     margin: 0;
     padding: 1rem;
 }
 
-.todos li {
+.goals li {
     box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.26);
     padding: 1rem;
     margin: 1rem;
 }
 
-.todos li h2 {
+.goals li h2 {
     color: #ff0062;
     margin: 0.5rem 0;
 }
 
-#finished-todos li h2 {
+#achievement li h2 {
     color: #0044ff;
 }
 
-.todos li h3 {
+.goals li h3 {
     color: #575757;
     font-size: 1rem;
 }
@@ -115,7 +126,7 @@ button:active {
     background: #ffe3ee;
 }
 
-#finished-todos .droppable {
+#finished-goals .droppable {
     background: #d6e1ff;
 }
 
