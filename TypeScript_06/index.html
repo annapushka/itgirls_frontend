@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>GOAL list</title>
+    <link rel="stylesheet" href="assets/style.css" />
+    <script src="dist/app.js" defer></script>
+</head>
+
+<body>
+    <template id="solar-system">
+        <form>
+            <div class="form-control">
+                <label for="title">Title</label>
+                <input type="text" id="title" />
+            </div>
+            <div class="form-control">
+                <label for="description">Description</label>
+                <textarea id="description" rows="3"></textarea>
+            </div>
+            <div class="form-control">
+                <label for="reate">Reate</label>
+                <input type="number" id="reate" />
+            </div>
+            <button type="submit" id="goal">ADD GOAL</button>
+            <button type="submit" id="achievement">ADD ACHIEVEMENT</button>
+        </form>
+    </template>
+    <div id="universal"></div>
+</body>
+
+</html>
