@@ -11,19 +11,40 @@
 </head>
 
 <body>
-    <div class="solar-syst">
-        <div class="sun"></div>
-        <div class="mercury"></div>
-        <div class="venus"></div>
-        <div class="earth"></div>
-        <div class="mars"></div>
-        <div class="jupiter"></div>
-        <div class="saturn"></div>
-        <div class="uranus"></div>
-        <div class="neptune"></div>
-        <div class="pluto"></div>
-        <div class="asteroids-belt"></div>
+    <template id="solar-system">
+        <form>
+            <div class="form-control">
+                <label for="title">Title</label>
+                <input type="text" id="title" />
+            </div>
+            <div class="form-control">
+                <label for="description">Description</label>
+                <textarea id="description" rows="3"></textarea>
+            </div>
+            <div class="form-control">
+                <label for="reate">Reate</label>
+                <input type="number" id="reate" />
+            </div>
+            <button type="submit" id="goal">ADD GOAL</button>
+            <button type="submit" id="achievement">ADD ACHIEVEMENT</button>
+        </form>
+    </template>
+    <div id="universal">
+        <div class="solar-syst">
+            <div class="sun"></div>
+            <div class="mercury"></div>
+            <div class="venus"></div>
+            <div class="earth"></div>
+            <div class="mars"></div>
+            <div class="jupiter"></div>
+            <div class="saturn"></div>
+            <div class="uranus"></div>
+            <div class="neptune"></div>
+            <div class="pluto"></div>
+            <div class="asteroids-belt"></div>
+        </div>
     </div>
+
 </body>
 
 </html>
