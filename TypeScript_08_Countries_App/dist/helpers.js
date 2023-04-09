@@ -1,3 +1,5 @@
+const getEntries = (obj) => Object.entries(obj);
+const getCurrency = (obj) => getEntries(getEntries(obj)[1]);
 export const getCountries = () => {
     return fetch('https://restcountries.com/v3.1/all')
         .then(res => res.json())
@@ -9,10 +11,9 @@ export const getCountryInfo = (name) => {
         .then(res => res.map((countryInfo) => ({
         capital: countryInfo.capital,
         flags: countryInfo.flags,
-        currencies: countryInfo.currencies,
+        currencies: countryInfo.currencies.map((currency) => getCurrency(currency)),
         timezones: countryInfo.timezones,
         population: countryInfo.population,
-        info: countryInfo
     }))[0]);
 };
 //# sourceMappingURL=helpers.js.map

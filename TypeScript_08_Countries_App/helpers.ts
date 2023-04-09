@@ -4,13 +4,21 @@ interface Country {
     }
 }
 
+type Entries<T> = {
+    [K in keyof T]: [K, T[K]];
+}[keyof T][];
+
+const getEntries = <T extends object>(obj: T) => Object.entries(obj) as Entries<T>;
+
+const getCurrency = (obj: Object) => getEntries(getEntries(obj)[1])
+
 export interface CountryInfo {
     capital: string[],
     flags: {
         png: string;
         alt: string;
     },
-    currencies: {},
+    currencies: [],
     timezones: string[],
     population: number
 }
@@ -27,9 +35,8 @@ export const getCountryInfo = (name: string) => {
         .then(res => res.map((countryInfo: CountryInfo) => ({
             capital: countryInfo.capital,
             flags: countryInfo.flags,
-            currencies: countryInfo.currencies,
+            currencies:  countryInfo.currencies.map((currency) => getCurrency(currency)),
             timezones: countryInfo.timezones,
             population: countryInfo.population,
-            info: countryInfo
         }))[0])
 }
