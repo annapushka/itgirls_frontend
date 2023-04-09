@@ -21,6 +21,6 @@ export class Search extends Component < HTMLDivElement, HTMLFormElement > {
         event.preventDefault();
         const country = this.countryInput.value;
         const countryInfo = await getCountryInfo(country);
-        new CountryCard(countryInfo)   
+        new CountryCard(countryInfo, country)   
     }
 }

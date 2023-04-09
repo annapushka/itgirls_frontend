@@ -25,7 +25,7 @@ export class Search extends Component {
             event.preventDefault();
             const country = this.countryInput.value;
             const countryInfo = yield getCountryInfo(country);
-            new CountryCard(countryInfo);
+            new CountryCard(countryInfo, country);
         });
     }
 }
