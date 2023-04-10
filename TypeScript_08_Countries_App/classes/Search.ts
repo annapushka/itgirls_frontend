@@ -17,8 +17,14 @@ export class Search extends Component < HTMLDivElement, HTMLFormElement > {
 
     renderContent(): void {}
 
+    clearCard() {
+        const element = document.getElementById("country-info");
+        element?.remove();
+    }
+
     private async submitHandler(event: SubmitEvent ) {
         event.preventDefault();
+        this.clearCard();
         const country = this.countryInput.value;
         const countryInfo = await getCountryInfo(country);
         new CountryCard(countryInfo, country)   

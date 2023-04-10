@@ -20,9 +20,14 @@ export class Search extends Component {
         this.element.addEventListener('submit', this.submitHandler.bind(this));
     }
     renderContent() { }
+    clearCard() {
+        const element = document.getElementById("country-info");
+        element === null || element === void 0 ? void 0 : element.remove();
+    }
     submitHandler(event) {
         return __awaiter(this, void 0, void 0, function* () {
             event.preventDefault();
+            this.clearCard();
             const country = this.countryInput.value;
             const countryInfo = yield getCountryInfo(country);
             new CountryCard(countryInfo, country);

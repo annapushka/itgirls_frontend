@@ -10,7 +10,6 @@ type Entries<T> = {
 
 const getEntries = <T extends object>(obj: T) => Object.entries(obj) as Entries<T>;
 
-const getCurrency = (obj: Object) => getEntries(getEntries(obj)[1])
 
 export interface CountryInfo {
     capital: string[],
@@ -23,19 +22,19 @@ export interface CountryInfo {
     population: number
 }
 
-export const getCountries = () => {
+export const getCountries = (): Promise<string[]>  => {
     return fetch('https://restcountries.com/v3.1/all')
         .then(res => res.json())
         .then(res => res.map((country: Country) => country.name.common))
 }
 
-export const getCountryInfo = (name: string) => {
+export const getCountryInfo = (name: string): Promise<CountryInfo> => {
     return fetch(`https://restcountries.com/v3.1/name/${name}?fullText=true`)
         .then(res => res.json())
         .then(res => res.map((countryInfo: CountryInfo) => ({
             capital: countryInfo.capital,
             flags: countryInfo.flags,
-            currencies:  countryInfo.currencies.map((currency) => getCurrency(currency)),
+            currencies:  getEntries(countryInfo.currencies),
             timezones: countryInfo.timezones,
             population: countryInfo.population,
         }))[0])

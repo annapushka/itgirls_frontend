@@ -4,12 +4,8 @@ import { Search } from "./classes/Search.js";
 import { getCountries } from "./helpers.js";
 
 
-
-
-
 document.addEventListener('DOMContentLoaded', async () => {
         const countries = await getCountries()
-        const search = new Search();
+        new Search();
         countries.forEach((country: string) => new CountryOption(country))
-        console.log(search);
 });

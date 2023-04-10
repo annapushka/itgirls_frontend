@@ -12,8 +12,7 @@ import { Search } from "./classes/Search.js";
 import { getCountries } from "./helpers.js";
 document.addEventListener('DOMContentLoaded', () => __awaiter(void 0, void 0, void 0, function* () {
     const countries = yield getCountries();
-    const search = new Search();
+    new Search();
     countries.forEach((country) => new CountryOption(country));
-    console.log(search);
 }));
 //# sourceMappingURL=app.js.map

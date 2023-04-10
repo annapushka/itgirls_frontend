@@ -4,8 +4,7 @@ export class CountryCard extends Component {
         const { capital, currencies, flags, population, timezones } = value;
         super('country-card', 'app', false, 'country-info');
         this.capital = capital[0];
-        this.currencies = currencies;
-        console.log(this.currencies);
+        this.currencies = currencies.map((curency) => curency[0]);
         this.flags = flags;
         this.timezones = timezones;
         this.population = population;
