@@ -3,7 +3,18 @@
 }
 
 body {
-  margin: 100px;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.form-select {
+  min-width: 200px;
+  max-width: 100%;
 }
 
 .earth {
