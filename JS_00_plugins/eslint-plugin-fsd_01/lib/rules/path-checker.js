@@ -25,7 +25,8 @@ module.exports = {
         // /home/anna_push/blog_app/src/shared/ui/Card
         const fromFilename = context.getFilename();
 
-        context.report({ node: node, message: "Линтер ругается" });
+        if(shouldBeRelative(fromFilename, importTo))
+        context.report({ node: node, message: "Within one slide, imports must be relative" });
       },
     };
   },
@@ -60,5 +61,12 @@ function shouldBeRelative(from, to) {
   const projectFrom = normalizedPath.split("src")[1];
   const fromArray = projectFrom.split("\\");
 
-  console.log(fromArray);
+  const fromLayer = fromArray[1];
+  const fromSlice = fromArray[2];
+
+  if (!fromLayer || !fromSlice || !layers[fromLayer]) {
+    return false;
+  }
+
+  return fromSlice === toSlice && toLayer === fromLayer;
 }
