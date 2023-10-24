@@ -3,6 +3,7 @@
 "use strict";
 
 const path = require("path");
+const isPathRelative = require("../helpers");
 
 module.exports = {
   meta: {
@@ -20,8 +21,7 @@ module.exports = {
           type: "string",
         },
       },
-    }
-    ],
+    }],
   },
 
   create(context) {
@@ -41,10 +41,6 @@ module.exports = {
     };
   },
 };
-
-function isPathRelative(path) {
-  return path.startsWith("./") || path.startsWith("../") || path === ".";
-}
 
 const layers = {
   entities: "entities",
