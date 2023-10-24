@@ -3,16 +3,46 @@
 const rule = require("../../../lib/rules/path-checker"),
   RuleTester = require("eslint").RuleTester;
 
-const ruleTester = new RuleTester();
+const ruleTester = new RuleTester({
+    parserOptions: {
+      ecmaVersion: 6,
+      sourceType: "module",
+    },
+});
 ruleTester.run("path-checker", rule, {
   valid: [
-    // give me some code that won't trigger a warning
+    {
+      filename: "\\home\\blog_app\\src\\entities\\Article",
+      code: "import { addCommentFormActions, addCommentFormReducer } from '../../model/slices/addCommentFormSlice';",
+      errors: [],
+      options: [
+        {
+          alias: ''
+        }
+      ]
+    },
   ],
 
   invalid: [
     {
-      code: "",
-      errors: [{ message: "Fill me in.", type: "Me too" }],
+      filename: "\\home\\blog_app\\src\\entities\\Article",
+      code: "import { addCommentFormActions, addCommentFormReducer } from '@/entities/Article/model/slices/addCommentFormSlice';",
+      errors: [{ message: "Within one slide, imports must be relative"}],
+      options: [
+        {
+          alias: '@'
+        }
+      ]
+    },
+    {
+      filename: "\\home\\blog_app\\src\\entities\\Article",
+      code: "import { addCommentFormActions, addCommentFormReducer } from 'entities/Article/model/slices/addCommentFormSlice';",
+      errors: [{ message: "Within one slide, imports must be relative"}],
+      options: [
+        {
+          alias: ''
+        }
+      ]
     },
   ],
 });

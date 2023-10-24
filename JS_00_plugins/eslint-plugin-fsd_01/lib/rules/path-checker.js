@@ -6,21 +6,31 @@ const path = require("path");
 
 module.exports = {
   meta: {
-    type: null, // `problem`, `suggestion`, or `layout`
+    type: null,
     docs: {
       description: "feature sliced relative path checker",
       recommended: false,
-      url: null, // URL to the documentation page for this rule
+      url: null,
     },
-    fixable: null, // Or `code` or `whitespace`
-    schema: [], // Add a schema if the rule has options
+    fixable: null,
+    schema: [{
+      type: "object",
+      properties: {
+        alias: {
+          type: "string",
+        },
+      },
+    }
+    ],
   },
 
   create(context) {
+    const alias = context.options[0].alias || '';
     return {
       ImportDeclaration(node) {
         // example src/shared/ui/Card
-        const importTo = node.source.value;
+        const value = node.source.value;
+        const importTo = alias ? value.replace(`${alias}/`, '') : value;
 
         // /home/anna_push/blog_app/src/shared/ui/Card
         const fromFilename = context.getFilename();
