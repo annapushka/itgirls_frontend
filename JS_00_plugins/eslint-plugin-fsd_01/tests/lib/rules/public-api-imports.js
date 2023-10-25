@@ -1,31 +1,37 @@
-/**
- * @fileoverview  
- * @author anna_push
- */
 "use strict";
-
-//------------------------------------------------------------------------------
-// Requirements
-//------------------------------------------------------------------------------
-
 const rule = require("../../../lib/rules/public-api-imports"),
   RuleTester = require("eslint").RuleTester;
 
-
-//------------------------------------------------------------------------------
-// Tests
-//------------------------------------------------------------------------------
-
-const ruleTester = new RuleTester();
+const ruleTester = new RuleTester({
+  parserOptions: {
+    ecmaVersion: 6,
+    sourceType: "module",
+  },
+});
 ruleTester.run("public-api-imports", rule, {
-  valid: [
-    // give me some code that won't trigger a warning
-  ],
+  valid: [{
+    code: "import { addCommentFormActions, addCommentFormReducer } from '../../model/slices/addCommentFormSlice';",
+    errors: [],
+    options: [{
+      alias: ''
+    }]
+  },{
+    code: "import { addCommentFormActions, addCommentFormReducer } from '@/entities/Article';",
+    errors: [],
+    options: [{
+      alias: '@'
+    }]
+  }],
 
-  invalid: [
-    {
-      code: " ",
-      errors: [{ message: "Fill me in.", type: "Me too" }],
+  invalid: [{
+      filename: "\\home\\blog_app\\src\\entities\\Article",
+      code: "import { addCommentFormActions, addCommentFormReducer } from '@/entities/Article/model/slices/addCommentFormSlice';",
+      errors: [{
+        message: "Absolute imports are only allowed from Public API (index.ts)"
+      }],
+      options: [{
+        alias: '@'
+      }]
     },
   ],
 });
