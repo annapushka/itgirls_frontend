@@ -53,17 +53,17 @@ module.exports = {
       const currentFilePath = context.getFilename();
 
       const normalizedPath = currentFilePath.replace(/[\\]+/g, "/")
-      const projectPath = normalizedPath.split('src')[1]
-      const segments = projectPath.split('/')
+      const projectPath = normalizedPath?.split('src')?.[1]
+      const segments = projectPath?.split('/')
 
-      return segments[1]
+      return segments?.[1]
     }
 
     const getImportLayer = (value) => {
       const importPath = alias ? value.replace(`${alias}/`, '') : value;
-      const segments = importPath.split('/')
+      const segments = importPath?.split('/')
 
-      return segments[0]
+      return segments?.[0]
     }
 
     return {
