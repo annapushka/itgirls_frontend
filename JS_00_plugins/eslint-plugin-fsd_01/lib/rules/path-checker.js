@@ -28,24 +28,30 @@ module.exports = {
     const alias = context.options[0].alias || '';
     return {
       ImportDeclaration(node) {
-        // example src/shared/ui/Card
-        const value = node.source.value;
-        const importTo = alias ? value.replace(`${alias}/`, '') : value;
+        try {
 
-        // /home/anna_push/blog_app/src/shared/ui/Card
-        const fromFilename = context.getFilename();
+          // example src/shared/ui/Card
+          const value = node.source.value;
+          const importTo = alias ? value.replace(`${alias}/`, '') : value;
 
-        if(shouldBeRelative(fromFilename, importTo))
-        context.report({ 
-          node: node, 
-          message: "Within one slide, imports must be relative",
-          fix: fixer => {
-            const normalizedPath = getNormalizedCurrentFilePath(fromFilename).split('/').slice(0, -1).join('/');
-            let relativePath = path.relative(normalizedPath, `/${importTo}`).split('\\').join('/');
-            relativePath = relativePath.startsWith('.') ? relativePath : `./${relativePath}`;
-            return fixer.replaceText(node.source, `'${relativePath}'`)
-          }
-        });
+          // /home/anna_push/blog_app/src/shared/ui/Card
+          const fromFilename = context.getFilename();
+
+          if (shouldBeRelative(fromFilename, importTo))
+            context.report({
+              node: node,
+              message: "Within one slide, imports must be relative",
+              fix: fixer => {
+                const normalizedPath = getNormalizedCurrentFilePath(fromFilename).split('/').slice(0, -1).join('/');
+                let relativePath = path.relative(normalizedPath, `/${importTo}`).split('\\').join('/');
+                relativePath = relativePath.startsWith('.') ? relativePath : `./${relativePath}`;
+                return fixer.replaceText(node.source, `'${relativePath}'`)
+              }
+            });
+        } catch (e) {
+          console.log(e)
+        }
+
       },
     };
   },
