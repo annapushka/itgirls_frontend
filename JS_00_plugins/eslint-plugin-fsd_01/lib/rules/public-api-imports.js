@@ -3,6 +3,10 @@ const isPathRelative = require("../helpers");
 const micromatch = require("micromatch");
 const path = require("path");
 
+const PUBLIC_ERROR = 'PUBLIC_ERROR';
+const TESTING_PUBLIC_ERROR = 'TESTING_PUBLIC_ERROR';
+
+
 module.exports = {
   meta: {
     type: 'suggestion',
@@ -11,7 +15,11 @@ module.exports = {
       recommended: false,
       url: null,
     },
-    fixable: null,
+    fixable: 'code',
+    messages: {
+      [PUBLIC_ERROR]: "Absolute imports are only allowed from Public API (index.ts)",
+      [TESTING_PUBLIC_ERROR]: "Testing imports are only allowed from Public API (testing.ts)"
+    },
     schema: [{
       type: "object",
       properties: {
@@ -51,6 +59,7 @@ module.exports = {
         const isTestingPublicApi = segments[2] === 'testing' && segments.length < 4;
 
         const layer = segments[0];
+        const slice = segments[1];
 
         if (!acceptableLayers[layer]) {
           return;
@@ -59,7 +68,8 @@ module.exports = {
         if (isImportNotFromPublicApi && !isTestingPublicApi) {
           context.report({
             node: node,
-            message: "Absolute imports are only allowed from Public API (index.ts)"
+            messageId: PUBLIC_ERROR,
+            fix: fixer => fixer.replaceText(node.source, `'${alias}/${layer}/${slice}'`)
           })
         }
 
@@ -76,7 +86,7 @@ module.exports = {
           if (!isCurrentFileTesting) {
             context.report({
               node: node,
-              message: "Testing imports are only allowed from Public API (testing.ts)"
+              messageId: TESTING_PUBLIC_ERROR
             })
 
           }

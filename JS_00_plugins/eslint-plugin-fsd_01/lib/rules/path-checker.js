@@ -13,7 +13,7 @@ module.exports = {
       recommended: false,
       url: null,
     },
-    fixable: null,
+    fixable: 'code',
     schema: [{
       type: "object",
       properties: {
@@ -28,15 +28,30 @@ module.exports = {
     const alias = context.options[0].alias || '';
     return {
       ImportDeclaration(node) {
-        // example src/shared/ui/Card
-        const value = node.source.value;
-        const importTo = alias ? value.replace(`${alias}/`, '') : value;
+        try {
 
-        // /home/anna_push/blog_app/src/shared/ui/Card
-        const fromFilename = context.getFilename();
+          // example src/shared/ui/Card
+          const value = node.source.value;
+          const importTo = alias ? value.replace(`${alias}/`, '') : value;
 
-        if(shouldBeRelative(fromFilename, importTo))
-        context.report({ node: node, message: "Within one slide, imports must be relative" });
+          // /home/anna_push/blog_app/src/shared/ui/Card
+          const fromFilename = context.getFilename();
+
+          if (shouldBeRelative(fromFilename, importTo))
+            context.report({
+              node: node,
+              message: "Within one slide, imports must be relative",
+              fix: fixer => {
+                const normalizedPath = getNormalizedCurrentFilePath(fromFilename).split('/').slice(0, -1).join('/');
+                let relativePath = path.relative(normalizedPath, `/${importTo}`).split('\\').join('/');
+                relativePath = relativePath.startsWith('.') ? relativePath : `./${relativePath}`;
+                return fixer.replaceText(node.source, `'${relativePath}'`)
+              }
+            });
+        } catch (e) {
+          console.log(e)
+        }
+
       },
     };
   },
@@ -49,6 +64,12 @@ const layers = {
   pages: "pages",
   widgets: "widgets",
 };
+
+function getNormalizedCurrentFilePath(currentFilePath) {
+  const normalizedPath = path.toNamespacedPath(currentFilePath);
+  const projectFrom = normalizedPath.split("src")[1];
+  return projectFrom.split("\\").join("/");
+}
 
 function shouldBeRelative(from, to) {
   if (isPathRelative(to)) {
@@ -63,9 +84,8 @@ function shouldBeRelative(from, to) {
     return false;
   }
 
-  const normalizedPath = path.toNamespacedPath(from);
-  const projectFrom = normalizedPath.split("src")[1];
-  const fromArray = projectFrom.split("\\");
+  const projectFrom = getNormalizedCurrentFilePath(from);
+  const fromArray = projectFrom.split("/");
 
   const fromLayer = fromArray[1];
   const fromSlice = fromArray[2];
