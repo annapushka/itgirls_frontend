@@ -35,3 +35,30 @@ const [a, b] = fileContent.toString().split(' ')
 const result = Number(a) + Number(b)
 
 fs.writeFileSync("output.txt", result.toString())
+
+
+//Даны два числа A и B. Вам нужно вычислить их сумму A+B. В этой задаче вам нужно читать из файла и выводить ответ в файл
+const fs = require('fs');
+
+
+fs.readFile('input.txt', 'utf8', (err, data) => {
+    if (err) {
+        console.error('Ошибка чтения файла:', err);
+        return;
+    }
+
+
+    const [A, B] = data.split(' ').map(Number);
+
+
+    const sum = A + B;
+
+
+    fs.writeFile('output.txt', sum.toString(), (err) => {
+        if (err) {
+            console.error('Ошибка записи в файл:', err);
+            return;
+        }
+        console.log('Сумма успешно записана в output.txt');
+    });
+});
